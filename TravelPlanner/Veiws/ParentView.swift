@@ -7,22 +7,19 @@
 
 import SwiftUI
 
-
-
 struct ParentView: View {
 
     // タブの選択項目を保持する
     @State var selection = 1
+    @EnvironmentObject var appState:AppState
 
     var body: some View {
 
-            
-            TabView(selection: $selection) {
+        TabView(selection: $appState.selection) {
                 
                 BaseTabView()   // Viewファイル①
                     .tabItem {
                         Label("入力", systemImage: "rectangle.and.pencil.and.ellipsis")
-                        Text("あ")
                     }
                     .tag(1)
                 
@@ -32,6 +29,7 @@ struct ParentView: View {
                     }
                     .tag(2)
             }
-        }
+    }
+        
     
 }

@@ -10,11 +10,13 @@ import SwiftUI
 struct InputPlanView: View {
     
     @Binding var selectedTab: Int
+    @Binding var canSwipe: Bool
     @ObservedObject var vm:InputPlanVM
     
-    init(selectedTab: Binding<Int>) {
-          self._selectedTab = selectedTab
-          self.vm = InputPlanVM(selectedTab: selectedTab)
+    init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {
+        self._selectedTab = selectedTab
+        self._canSwipe = canSwipe
+        self.vm = InputPlanVM(selectedTab: selectedTab,canSwipe: canSwipe)
       }
     
     var body: some View {
@@ -23,11 +25,6 @@ struct InputPlanView: View {
                 // MARK: - 入力エリア
                 TextEditor(text: $vm.model.text)
                     .frame(height: geometry.size.height * 0.8)
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-//                        
-//                    )
                     .overlay(alignment: .topLeading) {
                         // 未入力の時、プレースホルダーを表示
                         if vm.model.text.isEmpty {
@@ -69,7 +66,10 @@ struct InputPlanView: View {
                     // MARK: - 送信ボタンエリア
                     HStack{
                         //クリアボタン
-                        CustomButton(label:"クリア", action: vm.clearText)
+                        CustomButton(label:"クリア",
+                                     action: {
+                            vm.clearText()
+                        })
                         //作成ボタン
                         CustomButton(label:"作成", action: vm.requestGpt)
                     }
@@ -77,7 +77,10 @@ struct InputPlanView: View {
                     .frame(height: geometry.size.height * 0.2)
                 }
             }
+            .onAppear(perform: vm.onloadView)
             .padding()
+            //共通モディファイア
+            .modifier(CommonModifier(vm: vm))
         }
     }
 }

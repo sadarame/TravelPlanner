@@ -12,6 +12,7 @@ struct TravelPlannerApp: App {
     var body: some Scene {
         WindowGroup {
             ParentView()
+                .environmentObject(AppState())
         }
     }
 }

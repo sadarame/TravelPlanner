@@ -15,6 +15,14 @@ func loadDocumentID() -> String? {
     return UserDefaults.standard.string(forKey: "DocumentID")
 }
 
+func saveGptText(_ id: String) {
+    UserDefaults.standard.set(id, forKey: "GptText")
+}
+
+func loadGptText() -> String? {
+    return UserDefaults.standard.string(forKey: "GptText")
+}
+
 
 
 func saveTravelPlanHist(_ model: TravelPlanModel) {
@@ -41,3 +49,14 @@ func loadTravelPlanHistList() -> [TravelPlanModel]? {
     }
     return nil
 }
+
+
+func saveHistoryText(_ txt: String) {
+    UserDefaults.standard.set(txt, forKey: "HistoryText")
+}
+
+func loadHistoryText() -> String? {
+    return UserDefaults.standard.string(forKey: "HistoryText")
+}
+
+

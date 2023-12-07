@@ -10,8 +10,15 @@ import SwiftUI
 struct ResponseView: View {
     
     @Binding var selectedTab: Int
+    @ObservedObject var vm:ResponseVM = ResponseVM()
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                Text(vm.gptText)
+            }
+            .padding()
+            .onAppear(perform: vm.onloadView)
+        }
     }
 }

@@ -17,7 +17,7 @@ class TravelPlanModel: Identifiable, Codable {
     // 引数なしのイニシャライザ
     init() {
         self.id = UUID()
-        self.text = "旅行の計画立てて"
+        self.text = ""
         self.resText  = ""
         self.date = Date()
         self.documentID = loadDocumentID() ?? ""

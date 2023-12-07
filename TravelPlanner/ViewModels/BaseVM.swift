@@ -7,15 +7,19 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class BaseVM: NSObject, ObservableObject {
     
     //プログレスエフェクト表示制御
     @Published var isShowProgres = false
-    //エラーメッセージ
-    @Published var isShowingPopup: Bool = false
+    //エラーメッセージ制御
+    @Published var isShowingMessage: Bool = false
     @Published var userMessage: String = ""
+    //画面制御
+    @Published var isDisEditable:Bool = false
     
+//    @Binding var canSwipe: Bool
     
     // MARK: - AppStore遷移
     func openAppStore() {
@@ -26,21 +30,21 @@ class BaseVM: NSObject, ObservableObject {
     }
 
     
-    
     // ポップアップを表示するメソッド
     func showUserMessage(withMessage message: String) {
         userMessage = message
-        isShowingPopup = true
+        isShowingMessage = true
     }
     
     // ポップアップを非表示にするメソッド
     func hideUserMessage() {
-        isShowingPopup = false
+        isShowingMessage = false
     }
 
     //引数ありでAPIコールする用のメソッド
     func fetchDataFromAPI<T: Decodable>(url: String, jsonData:Data, completion: @escaping (Result<T, Error>) -> Void) {
         
+        isDisEditable = true
         isShowProgres = true
         
         guard let url = URL(string: url) else {
@@ -60,6 +64,7 @@ class BaseVM: NSObject, ObservableObject {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 self.isShowProgres = false
+                self.isDisEditable = false
             }
             
             if let error = error {

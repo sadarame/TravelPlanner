@@ -10,6 +10,11 @@
 		161D78532B0DCF5300C17982 /* TravelPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D78522B0DCF5300C17982 /* TravelPlannerApp.swift */; };
 		161D78572B0DCF5500C17982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D78562B0DCF5500C17982 /* Assets.xcassets */; };
 		161D785A2B0DCF5500C17982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D78592B0DCF5500C17982 /* Preview Assets.xcassets */; };
+		16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA582B216D150054BA39 /* CommonModifier.swift */; };
+		16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */; };
+		16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */; };
+		16A1CA5F2B219A2F0054BA39 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5E2B219A2F0054BA39 /* AppState.swift */; };
+		16A1CA622B21B0550054BA39 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA612B21B0550054BA39 /* Enum.swift */; };
 		16A2CE7F2B0DEAF900917917 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 16A2CE7E2B0DEAF900917917 /* Podfile */; };
 		16A2CE852B172D8600917917 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE842B172D8600917917 /* CalendarView.swift */; };
 		16A2CE872B1D929600917917 /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE862B1D929600917917 /* ParentView.swift */; };
@@ -36,6 +41,11 @@
 		161D78522B0DCF5300C17982 /* TravelPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlannerApp.swift; sourceTree = "<group>"; };
 		161D78562B0DCF5500C17982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		161D78592B0DCF5500C17982 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		16A1CA582B216D150054BA39 /* CommonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifier.swift; sourceTree = "<group>"; };
+		16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
+		16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseVM.swift; sourceTree = "<group>"; };
+		16A1CA5E2B219A2F0054BA39 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		16A1CA612B21B0550054BA39 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		16A2CE7E2B0DEAF900917917 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		16A2CE832B10A27100917917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		16A2CE842B172D8600917917 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -114,9 +124,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		16A1CA572B216CFE0054BA39 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				16A1CA582B216D150054BA39 /* CommonModifier.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		16A1CA602B21A0D80054BA39 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				16A2CE882B1D978D00917917 /* BaseTabView.swift */,
+				16A2CE8A2B1D987A00917917 /* TopTabView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 		16A2CE802B0DEBF000917917 /* Veiws */ = {
 			isa = PBXGroup;
 			children = (
+				16A1CA572B216CFE0054BA39 /* Common */,
 				16A2CE862B1D929600917917 /* ParentView.swift */,
 				16A2CEA22B1EE54F00917917 /* BaseView.swift */,
 				16A2CE952B1EB94600917917 /* InputTab */,
@@ -131,6 +159,7 @@
 				16A2CE8F2B1EB40A00917917 /* ScheduleModel.swift */,
 				16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */,
 				16A2CEAB2B204DC300917917 /* gptResponseModel.swift */,
+				16A1CA5E2B219A2F0054BA39 /* AppState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				16A2CE9E2B1EE30B00917917 /* InputPlanVM.swift */,
+				16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */,
+				16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */,
 				16A2CEA02B1EE33C00917917 /* BaseVM.swift */,
 			);
 			path = ViewModels;
@@ -156,9 +187,8 @@
 		16A2CE952B1EB94600917917 /* InputTab */ = {
 			isa = PBXGroup;
 			children = (
+				16A1CA602B21A0D80054BA39 /* Tab */,
 				16A2CE8C2B1D9C5F00917917 /* InputPlanView.swift */,
-				16A2CE882B1D978D00917917 /* BaseTabView.swift */,
-				16A2CE8A2B1D987A00917917 /* TopTabView.swift */,
 				16A2CE982B1EB99D00917917 /* HistoryView.swift */,
 				16A2CE9A2B1EB9CB00917917 /* ResponseView.swift */,
 				16A2CE9C2B1EBB2900917917 /* SharedView.swift */,
@@ -171,6 +201,7 @@
 			children = (
 				16A2CEA52B1EE5AE00917917 /* Const.swift */,
 				16A2CEA72B1EE5C300917917 /* UserDefaultManager.swift */,
+				16A1CA612B21B0550054BA39 /* Enum.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -310,18 +341,23 @@
 			files = (
 				16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */,
 				16A2CE932B1EB60900917917 /* DetailView.swift in Sources */,
+				16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */,
 				16A2CEA82B1EE5C300917917 /* UserDefaultManager.swift in Sources */,
 				16A2CE9F2B1EE30B00917917 /* InputPlanVM.swift in Sources */,
 				16A2CE902B1EB40A00917917 /* ScheduleModel.swift in Sources */,
 				16A2CEAC2B204DC400917917 /* gptResponseModel.swift in Sources */,
 				16A2CE9D2B1EBB2900917917 /* SharedView.swift in Sources */,
+				16A1CA622B21B0550054BA39 /* Enum.swift in Sources */,
 				16A2CE8B2B1D987A00917917 /* TopTabView.swift in Sources */,
 				16A2CE872B1D929600917917 /* ParentView.swift in Sources */,
 				16A2CEA12B1EE33C00917917 /* BaseVM.swift in Sources */,
+				16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */,
 				16A2CE9B2B1EB9CB00917917 /* ResponseView.swift in Sources */,
 				16A2CE892B1D978D00917917 /* BaseTabView.swift in Sources */,
+				16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */,
 				161D78532B0DCF5300C17982 /* TravelPlannerApp.swift in Sources */,
 				16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */,
+				16A1CA5F2B219A2F0054BA39 /* AppState.swift in Sources */,
 				16A2CEA32B1EE54F00917917 /* BaseView.swift in Sources */,
 				16A2CE992B1EB99D00917917 /* HistoryView.swift in Sources */,
 				16A2CE852B172D8600917917 /* CalendarView.swift in Sources */,
