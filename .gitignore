@@ -1,5 +1,6 @@
 # Mac OS X
 .DS_Store
+xcschememanagement
 ## Xcode build files
 build/
 DerivedData/
