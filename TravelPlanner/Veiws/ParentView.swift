@@ -22,6 +22,7 @@ struct ParentView: View {
                 BaseTabView()   // Viewファイル①
                     .tabItem {
                         Label("入力", systemImage: "rectangle.and.pencil.and.ellipsis")
+                        Text("あ")
                     }
                     .tag(1)
                 
