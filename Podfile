@@ -16,7 +16,7 @@ target 'TravelPlanner' do
   
   pod 'Google-Mobile-Ads-SDK'
 
-  # Pods for GarbageCalendar
+  # Pods for TravelPlanner
 end
 
 post_install do |installer|

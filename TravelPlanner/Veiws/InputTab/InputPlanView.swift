@@ -13,6 +13,8 @@ struct InputPlanView: View {
     @Binding var canSwipe: Bool
     @ObservedObject var vm:InputPlanVM
     
+    @EnvironmentObject var appState:AppState
+    
     init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {
         self._selectedTab = selectedTab
         self._canSwipe = canSwipe
@@ -23,12 +25,12 @@ struct InputPlanView: View {
         GeometryReader { geometry in
             VStack {
                 // MARK: - 入力エリア
-                TextEditor(text: $vm.model.text)
+                TextEditor(text: $appState.txt)
                     .frame(height: geometry.size.height * 0.8)
                     .overlay(alignment: .topLeading) {
                         // 未入力の時、プレースホルダーを表示
-                        if vm.model.text.isEmpty {
-                            Text("ここに文字を入力してください。")
+                        if appState.txt.isEmpty {
+                            Text(Const.msg_placeholder)
                                 .allowsHitTesting(false) // タップ判定を無効化
                                 .foregroundColor(Color(uiColor: .placeholderText))
                                 .padding(6)
@@ -68,10 +70,12 @@ struct InputPlanView: View {
                         //クリアボタン
                         CustomButton(label:"クリア",
                                      action: {
-                            vm.clearText()
+                            appState.txt = ""
                         })
                         //作成ボタン
-                        CustomButton(label:"作成", action: vm.requestGpt)
+                        CustomButton(label: "作成") {
+                            vm.createTravelPlan(txt: appState.txt)
+                        }
                     }
                     
                     .frame(height: geometry.size.height * 0.2)

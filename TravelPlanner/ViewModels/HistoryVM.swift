@@ -22,8 +22,4 @@ class HistoryVM: BaseVM {
         planHistList = loadTravelPlanHistList() ?? []
     }
     
-    func tapToList(txt:String){
-        saveHistoryText(txt)
-        selectedTab = 0
-    }
 }

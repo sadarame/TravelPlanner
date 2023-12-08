@@ -10,7 +10,8 @@ import SwiftUI
 struct BaseTabView: View {
     
     @State private var selectedTab: Int = 0
-    @State private var canSwipe: Bool = true
+    @ObservedObject var vm:BaseVM = BaseVM()
+    
 
     let list: [String] = ["入力", "履歴", "応答", "みんな旅行計画"]
 
@@ -22,7 +23,7 @@ struct BaseTabView: View {
             TabView(selection: $selectedTab,
                     content: {
                 //入力画面
-                InputPlanView(selectedTab: $selectedTab, canSwipe: $canSwipe)
+                InputPlanView(selectedTab: $selectedTab, canSwipe: $vm.canSwipe)
                     .tag(0)
                 //履歴画面
                 HistoryView(selectedTab: $selectedTab)
@@ -36,9 +37,9 @@ struct BaseTabView: View {
                     .tag(3)
             })
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .disabled(!canSwipe)
+            .disabled(!vm.canSwipe)
         }
+        .modifier(CommonModifier(vm: vm))
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Test")
     }
 }

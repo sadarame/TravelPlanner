@@ -18,8 +18,10 @@ class BaseVM: NSObject, ObservableObject {
     @Published var userMessage: String = ""
     //画面制御
     @Published var isDisEditable:Bool = false
+    @Published var canSwipe:Bool = true
     
-//    @Binding var canSwipe: Bool
+    
+    
     
     // MARK: - AppStore遷移
     func openAppStore() {
@@ -28,6 +30,7 @@ class BaseVM: NSObject, ObservableObject {
         }
         UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
     }
+
 
     
     // ポップアップを表示するメソッド

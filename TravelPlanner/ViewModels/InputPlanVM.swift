@@ -12,48 +12,27 @@ class InputPlanVM: BaseVM {
     
     @Published var model:TravelPlanModel = TravelPlanModel()
     @Binding var selectedTab: Int
-    @Binding var canSwipe: Bool
- 
+    @Binding var canSwiped: Bool
     
     // MARK: 初期処理
     init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {
         
-        
         self._selectedTab = selectedTab
-        self._canSwipe = canSwipe
-        super.init()
-        
-        let t = loadHistoryText()
-        if t != "" {
-            self.model.text = t ?? ""
-        }
-        saveHistoryText("")
+        self._canSwiped = canSwipe
+    
     }
     
     func onloadView(){
-        //履歴画面から遷移した場合
-        var t = loadHistoryText()
-        if t != "" {
-            model.text = t ?? ""
-        }
-        saveHistoryText("")
-        
-//        appState.selection = 2
-        
        
     }
     
     // MARK: - GPTに送る処理
-    func createTravelPlan(){
+    func createTravelPlan(txt:String){
+        model.text = txt
         //履歴を保存
         saveTravelPlanHist(model)
         //リクエスト送信
         requestGpt()
-    }
-    
-    // MARK: - クリア
-    func clearText(){
-        model.text = ""
     }
     
     // MARK: - 通信成功時の処理
@@ -66,7 +45,7 @@ class InputPlanVM: BaseVM {
             saveTravelPlanHist(self.model)
             //画面遷移
             saveGptText(resModel.responseMessage)
-            self.canSwipe = true
+            self.canSwiped = true
             self.selectedTab = 2
             
         }
@@ -75,7 +54,7 @@ class InputPlanVM: BaseVM {
     // MARK: - GPTへリクエスト
     func requestGpt() {
         //スワイプできないように制御
-        canSwipe = false
+        canSwiped = false
         
         // リクエストデータ
         let requestData: [String: Any] = [

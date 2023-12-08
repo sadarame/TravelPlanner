@@ -15,6 +15,7 @@
 		16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */; };
 		16A1CA5F2B219A2F0054BA39 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5E2B219A2F0054BA39 /* AppState.swift */; };
 		16A1CA622B21B0550054BA39 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA612B21B0550054BA39 /* Enum.swift */; };
+		16A1CA652B22E6270054BA39 /* travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json in Resources */ = {isa = PBXBuildFile; fileRef = 16A1CA642B22E6270054BA39 /* travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json */; };
 		16A2CE7F2B0DEAF900917917 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 16A2CE7E2B0DEAF900917917 /* Podfile */; };
 		16A2CE852B172D8600917917 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE842B172D8600917917 /* CalendarView.swift */; };
 		16A2CE872B1D929600917917 /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE862B1D929600917917 /* ParentView.swift */; };
@@ -28,7 +29,6 @@
 		16A2CE9D2B1EBB2900917917 /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE9C2B1EBB2900917917 /* SharedView.swift */; };
 		16A2CE9F2B1EE30B00917917 /* InputPlanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE9E2B1EE30B00917917 /* InputPlanVM.swift */; };
 		16A2CEA12B1EE33C00917917 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA02B1EE33C00917917 /* BaseVM.swift */; };
-		16A2CEA32B1EE54F00917917 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA22B1EE54F00917917 /* BaseView.swift */; };
 		16A2CEA62B1EE5AE00917917 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA52B1EE5AE00917917 /* Const.swift */; };
 		16A2CEA82B1EE5C300917917 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA72B1EE5C300917917 /* UserDefaultManager.swift */; };
 		16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */; };
@@ -46,6 +46,7 @@
 		16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseVM.swift; sourceTree = "<group>"; };
 		16A1CA5E2B219A2F0054BA39 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		16A1CA612B21B0550054BA39 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		16A1CA642B22E6270054BA39 /* travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json"; sourceTree = "<group>"; };
 		16A2CE7E2B0DEAF900917917 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		16A2CE832B10A27100917917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		16A2CE842B172D8600917917 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		16A2CE9C2B1EBB2900917917 /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		16A2CE9E2B1EE30B00917917 /* InputPlanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPlanVM.swift; sourceTree = "<group>"; };
 		16A2CEA02B1EE33C00917917 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
-		16A2CEA22B1EE54F00917917 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		16A2CEA52B1EE5AE00917917 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		16A2CEA72B1EE5C300917917 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlanModel.swift; sourceTree = "<group>"; };
@@ -86,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				16A2CE7E2B0DEAF900917917 /* Podfile */,
+				16A1CA642B22E6270054BA39 /* travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json */,
 				161D78512B0DCF5300C17982 /* TravelPlanner */,
 				161D78502B0DCF5300C17982 /* Products */,
 				35606324EDF40B7710DCF56C /* Pods */,
@@ -104,9 +105,9 @@
 		161D78512B0DCF5300C17982 /* TravelPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				16A2CEA42B1EE59900917917 /* Tools */,
-				16A2CE832B10A27100917917 /* Info.plist */,
 				161D78522B0DCF5300C17982 /* TravelPlannerApp.swift */,
+				16A2CE832B10A27100917917 /* Info.plist */,
+				16A2CEA42B1EE59900917917 /* Tools */,
 				16A2CE802B0DEBF000917917 /* Veiws */,
 				16A2CE942B1EB66500917917 /* ViewModels */,
 				16A2CE8E2B1EB37800917917 /* Models */,
@@ -144,9 +145,8 @@
 		16A2CE802B0DEBF000917917 /* Veiws */ = {
 			isa = PBXGroup;
 			children = (
-				16A1CA572B216CFE0054BA39 /* Common */,
 				16A2CE862B1D929600917917 /* ParentView.swift */,
-				16A2CEA22B1EE54F00917917 /* BaseView.swift */,
+				16A1CA572B216CFE0054BA39 /* Common */,
 				16A2CE952B1EB94600917917 /* InputTab */,
 				16A2CE912B1EB5B900917917 /* CalendarTab */,
 			);
@@ -287,6 +287,7 @@
 				16A2CE7F2B0DEAF900917917 /* Podfile in Resources */,
 				161D785A2B0DCF5500C17982 /* Preview Assets.xcassets in Resources */,
 				161D78572B0DCF5500C17982 /* Assets.xcassets in Resources */,
+				16A1CA652B22E6270054BA39 /* travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +359,6 @@
 				161D78532B0DCF5300C17982 /* TravelPlannerApp.swift in Sources */,
 				16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */,
 				16A1CA5F2B219A2F0054BA39 /* AppState.swift in Sources */,
-				16A2CEA32B1EE54F00917917 /* BaseView.swift in Sources */,
 				16A2CE992B1EB99D00917917 /* HistoryView.swift in Sources */,
 				16A2CE852B172D8600917917 /* CalendarView.swift in Sources */,
 				16A2CEA62B1EE5AE00917917 /* Const.swift in Sources */,

@@ -11,8 +11,7 @@ struct HistoryView: View {
     
     @ObservedObject var vm:HistoryVM
     @Binding var selectedTab: Int
-    
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState:AppState
     
     init(selectedTab: Binding<Int>) {
         self._selectedTab = selectedTab
@@ -20,20 +19,23 @@ struct HistoryView: View {
     }
     
     var body: some View {
-        List(vm.planHistList) { plan in
+        List(vm.planHistList.reversed()) { plan in
             VStack(alignment: .leading) {
-                Text(plan.text)
+                Text(String(plan.text.prefix(Const.textMaxLength)))
                     .font(.headline)
                 Text("日時: \(formattedDate(plan.date))")
                     .font(.subheadline)
+                Spacer()  
             }
+            .contentShape(Rectangle())
             .onTapGesture {
                 // リストアイテムがタップされたときの処理
-                vm.tapToList(txt: plan.text)
+                appState.txt = plan.text
+                selectedTab = 0
             }
         }
-        
     }
+
     //日付
     private func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()

@@ -12,12 +12,13 @@ struct CommonModifier: ViewModifier {
     
     @ObservedObject var vm: BaseVM
     
+    
     func body(content: Content) -> some View {
         ZStack {
             content
             //処理中の画像表示
-            if vm.isShowProgres {
-                ProgressView("Loading...")
+            if vm.isShowProgres || !vm.canSwipe {
+                ProgressView(Const.msg_loading)
                     .progressViewStyle(CircularProgressViewStyle())
                     .padding()
                     .background(Color.black.opacity(0.3))
