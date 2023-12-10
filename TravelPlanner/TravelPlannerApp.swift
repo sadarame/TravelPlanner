@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
 import UIKit
+import Firebase
 import FirebaseCore
 
 @main
@@ -20,18 +20,19 @@ struct TravelPlannerApp: App {
         WindowGroup {
             ParentView()
                 .environmentObject(appState)
-                .onAppear {
-                    getMstData()
+                .environmentObject(GlobalViewModel.shared)
+                .onAppear(perform: GlobalViewModel.shared.fetchFireStore)
+                .alert(isPresented: GlobalViewModel.shared.$isShowMessage) {
+                    Alert(
+                        title: Text("ポップアップメッセージ"),
+                        message: Text("メッセージ内容"),
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
+
         }
     }
-    private func getMstData() {
-        // データを取得する処理
-        // ...
-        
-        // 取得したデータを AppState に設定する
-        appState.mstData.someData = "データを取得した結果"
-    }
+   
 }
 
 

@@ -24,6 +24,10 @@ struct CommonModifier: ViewModifier {
                     .background(Color.black.opacity(0.3))
                     .edgesIgnoringSafeArea(.all)
             }
+            
+//            if GlobalViewModel.shared.count == 1 {
+//                
+//            }
         }
         
         //エラーメッセージ

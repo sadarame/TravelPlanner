@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '17.0'
+ platform :ios, '12.0'
 
 target 'TravelPlanner' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -15,7 +15,13 @@ target 'TravelPlanner' do
   pod 'FirebaseMessaging'
   
   pod 'Google-Mobile-Ads-SDK'
-
+  
+  pod 'Firebase/FirestoreFirebase/Firestore'
+  
+  pod 'FirebaseAuth'
+  
+  pod 'Firebase/FirestoreSwift'
+ 
   # Pods for TravelPlanner
 end
 

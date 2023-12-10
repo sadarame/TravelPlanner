@@ -1,4 +1,5 @@
 # Mac OS X
+.xcworkspace
 .DS_Store
 xcschememanagement
 ## Xcode build files
