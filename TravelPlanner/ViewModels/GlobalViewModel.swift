@@ -9,79 +9,78 @@ import FirebaseFirestore
 
 final class GlobalViewModel: ObservableObject {
     static let shared: GlobalViewModel = .init() // シングルトンクラスへ
-    @Published var mstModel: [MstModel] = []
-    @Published var messsageModel: [MessageModel] = []
-    
-    @State var isShowMessage:Bool = false
+
+    //ユーザメッセージ通知フラグ
+    @Published var isShowMessage:Bool = false
+    //ユーザメッセージ
+    @Published var message:String = ""
+
+    //最後に通知したメッセージIDを保持
+    @AppStorage("lastUserMessageID") var lastUserMessageID = ""
     
     private init() {}
+
     
-    //マスタデータの取得
     func fetchFireStore() {
+        //マスタデータの取得
         fetchMstData()
-        fetchUserMessage()
+        //マスタデータの取得
+        fetchUserNotificationMessage()
     }
     
+    func fetchData<T: Decodable>(from collection: String, as type: T.Type, completion: @escaping ([T]) -> Void) {
+        let db = Firestore.firestore()
+        let collectionRef = db.collection(collection)
+        
+        // ドキュメントの取得
+        collectionRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error.localizedDescription)")
+                completion([])
+            } else {
+                // Firestoreから取得したデータを指定した型にデコード
+                do {
+                    let data = try querySnapshot?.documents.compactMap { document in
+                        try document.data(as: type)
+                    } ?? []
+                    completion(data)
+                } catch let error {
+                    print("Error decoding data: \(error.localizedDescription)")
+                    completion([])
+                }
+            }
+        }
+    }
+    
+    func fetchUserNotificationMessage() {
+        fetchData(from: "UserMessage", as: MessageModel.self) { [weak self] userMessageList in
+            //リスト形式をソート
+            let userMessage = userMessageList.sorted { $0.createAt > $1.createAt }[0]
+            
+            DispatchQueue.main.async {
+                //最後に通知したメッセージIDと取得してきたIDが一致しない場合
+                if self?.lastUserMessageID != userMessage.id ?? "" {
+
+                    self?.isShowMessage = true
+                    
+                    self?.message = userMessage.message
+
+                    self?.lastUserMessageID = userMessage.id ?? ""
+                }
+            }
+        }
+    }
     
     func fetchMstData() {
-        let db = Firestore.firestore()
-        db.collection("MstData").getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                if let documents = querySnapshot?.documents {
-                    self.mstModel = documents.compactMap { queryDocumentSnapshot in
-                        do {
-                            let jsonData = try JSONSerialization.data(withJSONObject: queryDocumentSnapshot.data())
-                            let decoder = JSONDecoder()
-                            if let jsonString = String(data: jsonData, encoding: .utf8) {
-                                 print(jsonString)
-                             } else {
-                                 print("Failed to convert JSON to String.")
-                             }
-                            let item = try decoder.decode(MstModel.self, from: jsonData)
-                            print(jsonData)
-                            return item
-                        } catch {
-                            print("Error decoding document: \(error)")
-                            return nil
-                        }
-                    }
-                }
-            }
+        fetchData(from: "MstData", as: MstModel.self) { mstModel in
+            saveMstData(mstModel.first ?? MstModel())
         }
     }
+    
+    func setAlertMessage(message:String){
+        isShowMessage = true
+        self.message = message
         
-    func fetchUserMessage() {
-        isShowMessage  = true
-        
-        let db = Firestore.firestore()
-        db.collection("NotoficateMessage").getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                if let documents = querySnapshot?.documents {
-                    self.messsageModel = documents.compactMap { queryDocumentSnapshot in
-                        do {
-                            let jsonData = try JSONSerialization.data(withJSONObject: queryDocumentSnapshot.data())
-                            let decoder = JSONDecoder()
-                            if let jsonString = String(data: jsonData, encoding: .utf8) {
-                                 print(jsonString)
-                             } else {
-                                 print("Failed to convert JSON to String.")
-                             }
-                            let item = try decoder.decode(MessageModel.self, from: jsonData)
-                            print(jsonData)
-                            return item
-                        } catch {
-                            print("Error decoding document: \(error)")
-                            return nil
-                        }
-                    }
-                }
-            }
-        }
     }
 }
-
 

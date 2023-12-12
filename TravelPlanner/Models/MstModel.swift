@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct MstModel: Decodable {
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+struct MstModel: Codable {
     var MaxLimit: Int = 0
     var preTxt: String = ""
+    
 }

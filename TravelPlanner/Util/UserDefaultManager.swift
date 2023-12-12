@@ -60,3 +60,49 @@ func loadHistoryText() -> String? {
 }
 
 
+func saveMstData(_ model: MstModel) {
+    do {
+        let data = try JSONEncoder().encode(model)
+        UserDefaults.standard.set(data, forKey: "mstData")
+        
+    } catch {
+        print("Failed to save garbage regist models: \(error)")
+    }
+}
+
+
+
+func loadMstData() -> MstModel {
+    if let data = UserDefaults.standard.data(forKey: "mstData") {
+        do {
+            let model = try JSONDecoder().decode(MstModel.self, from: data)
+            return model
+        } catch {
+            print("Failed to load garbage regist models: \(error)")
+        }
+    }
+    return MstModel()
+}
+
+
+func saveButtonPressModel(_ model: ButtonPressModel) {
+    do {
+        let data = try JSONEncoder().encode(model)
+        UserDefaults.standard.set(data, forKey: "buttonPressModel")
+        
+    } catch {
+        print("Failed to save garbage regist models: \(error)")
+    }
+}
+
+func loadButtonPressModel() -> ButtonPressModel {
+    if let data = UserDefaults.standard.data(forKey: "buttonPressModel") {
+        do {
+            let model = try JSONDecoder().decode(ButtonPressModel.self, from: data)
+            return model
+        } catch {
+            print("Failed to load garbage regist models: \(error)")
+        }
+    }
+    return ButtonPressModel()
+}

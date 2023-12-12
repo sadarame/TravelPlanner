@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-struct MessageModel: Decodable {
-    var notificateMessage: Int = 0
-    var notificateMessageID: String = ""
+struct MessageModel: Identifiable, Codable {
+    @DocumentID var id: String?
+    var message: String
+    var createAt: Date
+    var dateFrom: Date
+    var dateTo: Date
 }

@@ -11,15 +11,20 @@ import SwiftUI
 class InputPlanVM: BaseVM {
     
     @Published var model:TravelPlanModel = TravelPlanModel()
+    var buttonPressModel:ButtonPressModel = ButtonPressModel()
+    
     @Binding var selectedTab: Int
     @Binding var canSwiped: Bool
+    
+    //リクエストを送った回数
+    @AppStorage("lastUserMessageID") var lastUserMessageID = ""
+    
     
     // MARK: 初期処理
     init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {
         
         self._selectedTab = selectedTab
         self._canSwiped = canSwipe
-    
     }
     
     func onloadView(){
@@ -50,16 +55,46 @@ class InputPlanVM: BaseVM {
             
         }
     }
+    
+    //上限計算
+    func isRequestLimit() {
+        
+        buttonPressModel = loadButtonPressModel()
+        
+       if Calendar.current.isDateInToday(buttonPressModel.lastPressDate) {
+            // 制限回数内かつ同じ日にボタンが押された場合
+            buttonPressModel.buttonPressCount += 1
+        } else {
+            // 制限回数内で、前回の押下が昨日以前の場合
+            buttonPressModel.buttonPressCount = 1
+        }
+        //保存
+        saveButtonPressModel(buttonPressModel)
+    }
+
+
 
     // MARK: - GPTへリクエスト
     func requestGpt() {
+        
+        isRequestLimit()
+        
+        //一日の上限を超えてた場合
+        if buttonPressModel.isOverMaxCount {
+            GlobalViewModel.shared.setAlertMessage(message: Const.msg_error_limit)
+            return
+        }
+        
         //スワイプできないように制御
         canSwiped = false
+        
+        //定型文と結合して送信
+        let user_message = loadMstData().preTxt + model.text
         
         // リクエストデータ
         let requestData: [String: Any] = [
             "document_id": model.documentID,
-            "user_message": model.text
+            "user_message": user_message
         ]
 
         do {

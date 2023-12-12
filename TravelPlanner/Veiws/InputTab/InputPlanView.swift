@@ -11,8 +11,8 @@ struct InputPlanView: View {
     
     @Binding var selectedTab: Int
     @Binding var canSwipe: Bool
-    @ObservedObject var vm:InputPlanVM
     
+    @ObservedObject var vm:InputPlanVM
     @EnvironmentObject var appState:AppState
     
     init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {

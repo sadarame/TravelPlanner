@@ -21,18 +21,9 @@ struct TravelPlannerApp: App {
             ParentView()
                 .environmentObject(appState)
                 .environmentObject(GlobalViewModel.shared)
-                .onAppear(perform: GlobalViewModel.shared.fetchFireStore)
-                .alert(isPresented: GlobalViewModel.shared.$isShowMessage) {
-                    Alert(
-                        title: Text("ポップアップメッセージ"),
-                        message: Text("メッセージ内容"),
-                        dismissButton: .default(Text("OK"))
-                    )
-                }
 
         }
     }
-   
 }
 
 

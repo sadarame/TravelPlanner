@@ -16,12 +16,12 @@ target 'TravelPlanner' do
   
   pod 'Google-Mobile-Ads-SDK'
   
-  pod 'Firebase/FirestoreFirebase/Firestore'
+  pod 'Firebase/Firestore'
   
   pod 'FirebaseAuth'
   
-  pod 'Firebase/FirestoreSwift'
- 
+  pod 'FirebaseFirestoreSwift'
+  
   # Pods for TravelPlanner
 end
 

@@ -17,6 +17,9 @@ struct Const {
     static let msg_error_API = "通信エラーが発生しました/nやり直してください"
     static let msg_error_json = "型変換処理でエラーが発生しました。"
     static let msg_error_common  = "エラーが発生しました"
+    static let msg_error_limit  = "一日の上限数を超えました"
+    
+    
     static let msg_loading  = "Loading...\n30秒ほどかかります"
     static let msg_placeholder  = "こちらに旅行の計画を入力してください"
     

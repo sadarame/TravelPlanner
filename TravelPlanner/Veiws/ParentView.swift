@@ -12,6 +12,7 @@ struct ParentView: View {
     // タブの選択項目を保持する
     @State var selection = 1
     @EnvironmentObject var appState:AppState
+    @EnvironmentObject var gvm: GlobalViewModel
 
     var body: some View {
 
@@ -29,6 +30,14 @@ struct ParentView: View {
                     }
                     .tag(2)
             }
+        .onAppear(perform: gvm.fetchFireStore)
+        .alert(isPresented: $gvm.isShowMessage) {
+            Alert(
+                title: Text("お知らせ"),
+                message: Text(gvm.message),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
         
     

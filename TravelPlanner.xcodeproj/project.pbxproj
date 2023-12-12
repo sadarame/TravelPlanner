@@ -11,6 +11,7 @@
 		161D78572B0DCF5500C17982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D78562B0DCF5500C17982 /* Assets.xcassets */; };
 		161D785A2B0DCF5500C17982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D78592B0DCF5500C17982 /* Preview Assets.xcassets */; };
 		1674C8CF2B25D6FB00C53EE1 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8CE2B25D6FB00C53EE1 /* MessageModel.swift */; };
+		1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */; };
 		16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA582B216D150054BA39 /* CommonModifier.swift */; };
 		16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */; };
 		16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */; };
@@ -37,7 +38,7 @@
 		16A2CEA82B1EE5C300917917 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA72B1EE5C300917917 /* UserDefaultManager.swift */; };
 		16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */; };
 		16A2CEAC2B204DC400917917 /* gptResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEAB2B204DC300917917 /* gptResponseModel.swift */; };
-		FB80535E7EFA69B6776825B6 /* Pods_TravelPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F218EC47AC5911A7E8A253 /* Pods_TravelPlanner.framework */; };
+		8AE6FADA0D6F8FB23B288FC5 /* Pods_TravelPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB22441D2416D8F3BDA47F1 /* Pods_TravelPlanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		161D78562B0DCF5500C17982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		161D78592B0DCF5500C17982 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1674C8CE2B25D6FB00C53EE1 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPressModel.swift; sourceTree = "<group>"; };
 		16A1CA582B216D150054BA39 /* CommonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifier.swift; sourceTree = "<group>"; };
 		16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
 		16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseVM.swift; sourceTree = "<group>"; };
@@ -73,9 +75,9 @@
 		16A2CEA72B1EE5C300917917 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlanModel.swift; sourceTree = "<group>"; };
 		16A2CEAB2B204DC300917917 /* gptResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gptResponseModel.swift; sourceTree = "<group>"; };
-		6856FAB2EEFFEE02F2252723 /* Pods-TravelPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelPlanner.release.xcconfig"; path = "Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner.release.xcconfig"; sourceTree = "<group>"; };
-		F2346F66A65162BE7D6DF400 /* Pods-TravelPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelPlanner.debug.xcconfig"; path = "Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner.debug.xcconfig"; sourceTree = "<group>"; };
-		F7F218EC47AC5911A7E8A253 /* Pods_TravelPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4380DAF47D7F0AB2F6CEA23A /* Pods-TravelPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelPlanner.release.xcconfig"; path = "Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		49F85A30B621C0EF67535E62 /* Pods-TravelPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelPlanner.debug.xcconfig"; path = "Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		5DB22441D2416D8F3BDA47F1 /* Pods_TravelPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +85,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB80535E7EFA69B6776825B6 /* Pods_TravelPlanner.framework in Frameworks */,
+				8AE6FADA0D6F8FB23B288FC5 /* Pods_TravelPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B71F5AF65443CC4889FFE11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DB22441D2416D8F3BDA47F1 /* Pods_TravelPlanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		161D78462B0DCF5200C17982 = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +108,7 @@
 				161D78512B0DCF5300C17982 /* TravelPlanner */,
 				161D78502B0DCF5300C17982 /* Products */,
 				35606324EDF40B7710DCF56C /* Pods */,
-				97B34C9AA2E7BE3A4848FD9E /* Frameworks */,
+				0B71F5AF65443CC4889FFE11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,7 +126,7 @@
 				16A1CA9D2B2303F00054BA39 /* travelplanner-e01b4-firebase-adminsdk-qvjud-f8991e7e09.json */,
 				161D78522B0DCF5300C17982 /* TravelPlannerApp.swift */,
 				16A2CE832B10A27100917917 /* Info.plist */,
-				16A2CEA42B1EE59900917917 /* Tools */,
+				16A2CEA42B1EE59900917917 /* Util */,
 				16A2CE802B0DEBF000917917 /* Veiws */,
 				16A2CE942B1EB66500917917 /* ViewModels */,
 				16A2CE8E2B1EB37800917917 /* Models */,
@@ -171,6 +181,7 @@
 				16A1CA5E2B219A2F0054BA39 /* AppState.swift */,
 				16A1CAA12B2492B50054BA39 /* MstModel.swift */,
 				1674C8CE2B25D6FB00C53EE1 /* MessageModel.swift */,
+				1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,31 +219,23 @@
 			path = InputTab;
 			sourceTree = "<group>";
 		};
-		16A2CEA42B1EE59900917917 /* Tools */ = {
+		16A2CEA42B1EE59900917917 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				16A2CEA52B1EE5AE00917917 /* Const.swift */,
 				16A2CEA72B1EE5C300917917 /* UserDefaultManager.swift */,
 				16A1CA612B21B0550054BA39 /* Enum.swift */,
 			);
-			path = Tools;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		35606324EDF40B7710DCF56C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F2346F66A65162BE7D6DF400 /* Pods-TravelPlanner.debug.xcconfig */,
-				6856FAB2EEFFEE02F2252723 /* Pods-TravelPlanner.release.xcconfig */,
+				49F85A30B621C0EF67535E62 /* Pods-TravelPlanner.debug.xcconfig */,
+				4380DAF47D7F0AB2F6CEA23A /* Pods-TravelPlanner.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		97B34C9AA2E7BE3A4848FD9E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F7F218EC47AC5911A7E8A253 /* Pods_TravelPlanner.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,11 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 161D785D2B0DCF5500C17982 /* Build configuration list for PBXNativeTarget "TravelPlanner" */;
 			buildPhases = (
-				903C4DC7B48286C605F0E076 /* [CP] Check Pods Manifest.lock */,
+				199555EA1920FFAF853B9C80 /* [CP] Check Pods Manifest.lock */,
 				161D784B2B0DCF5300C17982 /* Sources */,
 				161D784C2B0DCF5300C17982 /* Frameworks */,
 				161D784D2B0DCF5300C17982 /* Resources */,
-				0C01B7A1EA0DAF3DC9DFEBEA /* [CP] Embed Pods Frameworks */,
+				F8D4A786CC22F1EBB9CD61E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,24 +310,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C01B7A1EA0DAF3DC9DFEBEA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		903C4DC7B48286C605F0E076 /* [CP] Check Pods Manifest.lock */ = {
+		199555EA1920FFAF853B9C80 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -346,6 +332,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F8D4A786CC22F1EBB9CD61E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */,
+				1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */,
 				16A2CE932B1EB60900917917 /* DetailView.swift in Sources */,
 				16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */,
 				16A2CEA82B1EE5C300917917 /* UserDefaultManager.swift in Sources */,
@@ -505,7 +509,7 @@
 		};
 		161D785E2B0DCF5500C17982 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2346F66A65162BE7D6DF400 /* Pods-TravelPlanner.debug.xcconfig */;
+			baseConfigurationReference = 49F85A30B621C0EF67535E62 /* Pods-TravelPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -541,7 +545,7 @@
 		};
 		161D785F2B0DCF5500C17982 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6856FAB2EEFFEE02F2252723 /* Pods-TravelPlanner.release.xcconfig */;
+			baseConfigurationReference = 4380DAF47D7F0AB2F6CEA23A /* Pods-TravelPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
