@@ -31,7 +31,7 @@ class InputPlanVM: BaseVM {
        
     }
     
-    // MARK: - GPTに送る処理
+    // MARK: - GPTに送る前段処理
     func createTravelPlan(txt:String){
         model.text = txt
         //履歴を保存
@@ -72,8 +72,6 @@ class InputPlanVM: BaseVM {
         saveButtonPressModel(buttonPressModel)
     }
 
-
-
     // MARK: - GPTへリクエスト
     func requestGpt() {
         
@@ -89,12 +87,13 @@ class InputPlanVM: BaseVM {
         canSwiped = false
         
         //定型文と結合して送信
-        let user_message = loadMstData().preTxt + model.text
+        let user_message = model.text
         
         // リクエストデータ
         let requestData: [String: Any] = [
             "document_id": model.documentID,
-            "user_message": user_message
+            "user_message": user_message,
+            "travelDuration":model.travelDuration
         ]
 
         do {

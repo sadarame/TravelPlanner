@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import FirebaseFirestore
 
 class BaseVM: NSObject, ObservableObject {
     

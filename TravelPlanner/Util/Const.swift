@@ -26,8 +26,10 @@ struct Const {
     //制御用定数
     //履歴画面のリストの文字数制限
     static let textMaxLength = 30
-    
-    
+    //sharedから持ってくる行数
+    static let fetchlimit = 30
+    //旅行計画の入力制限
+    static let travelPlanLimit = 500
     
     //画面メッセージ
     static let locationViewMsg1 = "本アプリは位置情報を使用して、ゴミの情報を取得します"

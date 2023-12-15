@@ -12,10 +12,12 @@ struct CommonModifier: ViewModifier {
     
     @ObservedObject var vm: BaseVM
     
-    
     func body(content: Content) -> some View {
         ZStack {
             content
+            
+            .disabled(vm.isDisEditable)
+            
             //処理中の画像表示
             if vm.isShowProgres || !vm.canSwipe {
                 ProgressView(Const.msg_loading)
@@ -24,6 +26,7 @@ struct CommonModifier: ViewModifier {
                     .background(Color.black.opacity(0.3))
                     .edgesIgnoringSafeArea(.all)
             }
+            
         }
         
         //エラーメッセージ
@@ -32,16 +35,6 @@ struct CommonModifier: ViewModifier {
                 vm.hideUserMessage()
             }))
         }
-        //キーボード
-        .toolbar {  // VStackに指定
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()         // 右寄せにする
-                Button("閉じる") {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)  //  フォーカスを外す
-                }
-            }
-        }
-        
-        .disabled(vm.isDisEditable)
+
     }
 }

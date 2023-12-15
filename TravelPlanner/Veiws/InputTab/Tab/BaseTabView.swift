@@ -32,8 +32,7 @@ struct BaseTabView: View {
                 ResponseView(selectedTab: $selectedTab)
                     .tag(2)
                 //共有画面（他の入力した旅行の計画をみれる画面）
-                //大変そうだからPhase２行きかな
-                SharedView()
+                SharedView(selectedTab: $selectedTab)
                     .tag(3)
             })
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
