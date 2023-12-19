@@ -11,6 +11,6 @@ import Foundation
 
 class AppState: ObservableObject {
     @Published var isDisEditable = false
-    @Published var selection = 1
+//    @Published var selection = 1
     @Published var txt = ""
 }

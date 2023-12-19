@@ -14,12 +14,13 @@ final class GlobalViewModel: ObservableObject {
     @Published var isShowMessage:Bool = false
     //ユーザメッセージ
     @Published var message:String = ""
-
     //最後に通知したメッセージIDを保持
     @AppStorage("lastUserMessageID") var lastUserMessageID = ""
     
+    //タブ移動用のフラグ
+    @Published var selection = 2
+    
     private init() {}
-
     
     func fetchFireStore() {
         //マスタデータの取得

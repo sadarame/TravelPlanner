@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 
 struct MstModel: Codable {
     var MaxLimit: Int = 0
-    var preTxt: String = ""
+    var json_fmt: String = ""
+    var system_message: String = ""
     
 }

@@ -20,5 +20,6 @@ class ResponseVM: BaseVM {
     
     func onloadView(){
         gptText = loadGptText() ?? ""
+        print(gptText)
     }
 }

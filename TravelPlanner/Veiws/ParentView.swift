@@ -10,13 +10,11 @@ import SwiftUI
 struct ParentView: View {
 
     // タブの選択項目を保持する
-    @State var selection = 1
-    @EnvironmentObject var appState:AppState
     @EnvironmentObject var gvm: GlobalViewModel
 
     var body: some View {
 
-        TabView(selection: $appState.selection) {
+        TabView(selection: $gvm.selection) {
                 
                 BaseTabView()   // Viewファイル①
                     .tabItem {

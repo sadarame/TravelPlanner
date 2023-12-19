@@ -11,14 +11,17 @@ import SwiftUI
 class InputPlanVM: BaseVM {
     
     @Published var model:TravelPlanModel = TravelPlanModel()
+    
+    //送信制限のためのモデル
     var buttonPressModel:ButtonPressModel = ButtonPressModel()
     
+    //画面制御用のバインディング
     @Binding var selectedTab: Int
     @Binding var canSwiped: Bool
     
     //リクエストを送った回数
     @AppStorage("lastUserMessageID") var lastUserMessageID = ""
-    
+    @AppStorage("durlation") var durlation: Int = 1
     
     // MARK: 初期処理
     init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {
@@ -43,15 +46,25 @@ class InputPlanVM: BaseVM {
     // MARK: - 通信成功時の処理
     func afterRequesSuccess(resModel:gptResponseModel) {
         DispatchQueue.main.async {
-            // 応答値を保存
+            // ドキュメントIDを保存
             saveDocumentID(resModel.documentId)
+            
+            //リクエスト、レスポンスを履歴として保存
             self.model.documentID = resModel.documentId
             self.model.resText = resModel.responseMessage
             saveTravelPlanHist(self.model)
-            //画面遷移
+            
+            //応答画面用に直近のでデータ保存（微妙だからあとで見直し）
             saveGptText(resModel.responseMessage)
             self.canSwiped = true
-            self.selectedTab = 2
+            
+            //GPTからの応答をモデルに変換
+            self.durlation = self.model.travelDuration
+            CalendarVM.shared.fetchScheduleFromJson(strJson: resModel.responseMessage)
+            
+            //カレンダービューへ遷移
+            GlobalViewModel.shared.selection = 2
+            
             
         }
     }

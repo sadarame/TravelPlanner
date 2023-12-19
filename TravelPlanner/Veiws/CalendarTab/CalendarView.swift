@@ -8,55 +8,130 @@
 import SwiftUI
 
 struct CalendarView: View {
+    
+    @EnvironmentObject var vm: CalendarVM
+    
+    
+    @State private var scroll_num = 13
+    
+    //横幅の母数
+    let population:CGFloat = 10
+    //時間列の横幅の割合
+    let widthTimeArea:CGFloat = 2
+    //スケジュール列の横幅
+    let widthScheduleArea:CGFloat = 8
+    //文字サイズ
+    let font_size_time:CGFloat = 18
+    
+    
+    
+    let height_half_cell:CGFloat = 2
+    
+    //ボタンの高さ用
+    
+    let weight_cell_button:CGFloat = 0.9
+    let height_header:CGFloat = 50
+    
+    init() {
+        CalendarVM.shared.durlation = 1
+    }
+    
+    
     var body: some View {
+        
         GeometryReader { geometry in
-            VStack {
-                // 日付エリア
-                HStack {
-                    VStack{
-                        Text("")
-                    }
-                    .frame(width: geometry.size.width / 10)
-                    
-                    
-                    ForEach(0..<3) { yobi in
-                        VStack {
-                            Text("")
-                            Text("\(yobi+1)日")
-                            Text("\(yobi+1)曜日")
+            ScrollViewReader { reader in
+                //ヘッダーエリア
+                VStack{
+                    //ヘッダー
+                    HStack(spacing: 0){
+                        ForEach(0...vm.durlation, id: \.self) { day in
+                            Divider()
+                            //時間列
+                            if day == 0 {
+                                Text("")
+                                    .frame(width: geometry.size.width * widthTimeArea / population)
+                                //一日目
+                            } else  {
+                                Text("\(day)日目")
+                                    .multilineTextAlignment(.center)
+                                    .frame(width: (geometry.size.width * widthScheduleArea / population) / CGFloat(vm.durlation))
+                            }
                         }
-                        .frame(width: geometry.size.width * 3 / 10) // 画面の幅を3分割したサイズ
                     }
-                }
-                
-                ScrollView {
-                    VStack(spacing:0) {
-                        //時間のループ
-                        ForEach(0..<24) { hour in
-                            
-                            HStack(spacing:0) {
-                                Text("\(String(format: "%02d", hour))時")
-                                                 .frame(width: geometry.size.width / 10, height: 150) // 画面の幅を4分割したサイズ
-                                            
-                                
-                                HStack(spacing:0) {
-                                    ForEach(0..<3) { s in
-                                        Text("\(s)")
-                                            .frame(width: geometry.size.width * 3 / 10,height: 150) //
-                                            .border(Color.gray.opacity(0.5), width: 1)
-//                                        画面の幅を3分割したサイズ
+                    //headerの高さ
+                    .frame(height: height_header)
+                    //下線を引く
+                    .overlay(Rectangle().frame(height: 1).foregroundColor(Color.gray.opacity(0.5)), alignment: .bottom) //
+                    
+                    ScrollView{
+                        //スケジュール
+                        HStack(spacing:0){
+                            ForEach(0...vm.durlation, id: \.self) { day in
+                                //スケジュール帳
+                                Divider()
+                                ZStack{
+                                    VStack(spacing:0){
+                                        //タイムライン
+                                        ForEach(0..<24, id: \.self) { hour in
+                                            //時間軸
+                                            if day == 0 {
+                                                Text("\(hour):00")
+                                                    .font(.system(size: font_size_time))
+                                                    .frame(width: geometry.size.width * widthTimeArea / population, height: vm.height_cell)
+                                                    .id(hour)
+                                                
+                                                
+                                                //一日目
+                                            } else {
+                                                Rectangle()
+                                                    .foregroundColor(Color.gray.opacity(0.5)) // 透明にする
+                                                    .frame(height: 1)
+                                                    .frame(width: (geometry.size.width * widthScheduleArea / population) / CGFloat(vm.durlation), height: vm.height_cell)
+                                                
+                                            }
+                                        }
+                                    }
+                                    //時間列以外の場合
+                                    if day != 0 {
+                                        
+                                        ForEach(vm.getPlansForDayOne(days: day), id: \.self) { plan in
+                                            // ボタンエリア
+                                            ScheduleButton(dayPlan: plan)
+                                                .frame(width: (geometry.size.width * widthScheduleArea / population) / CGFloat(vm.durlation) * weight_cell_button, height: vm.calcButtonHeight(plan: plan))
+                                                .offset(x: 0 / population, y: -100)
+                                        }
                                     }
                                 }
-                                .border(Color.gray.opacity(0.5), width: 1)
-                                // 一日目のコンテンツを追加する部分
+                                
                             }
-            
                         }
                     }
-                    
+                    .onAppear {
+                        // スクロール位置
+                        reader.scrollTo(scroll_num, anchor: .center)
+                    }
                 }
             }
-            .navigationTitle("スケジュール")
+        }
+    }
+}
+struct ScheduleButton: View {
+    var dayPlan: DayPlanModel
+    
+    var body: some View {
+        Button(action: {
+            // Handle button tap, e.g., navigate to detail view
+        }) {
+            // カスタムデザインのボタンに変更
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(Color.blue)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                Text(dayPlan.title)
+                    .foregroundColor(.white)
+                //                    .padding()
+            }
         }
     }
 }
