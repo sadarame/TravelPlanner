@@ -12,13 +12,15 @@ final class GlobalViewModel: ObservableObject {
 
     //ユーザメッセージ通知フラグ
     @Published var isShowMessage:Bool = false
+    //リワード広告
+    @Published var isShowAdReward:Bool = false
     //ユーザメッセージ
     @Published var message:String = ""
     //最後に通知したメッセージIDを保持
     @AppStorage("lastUserMessageID") var lastUserMessageID = ""
     
     //タブ移動用のフラグ
-    @Published var selection = 2
+    @Published var selection = 1
     
     private init() {}
     
@@ -81,7 +83,10 @@ final class GlobalViewModel: ObservableObject {
     func setAlertMessage(message:String){
         isShowMessage = true
         self.message = message
-        
+    }
+    
+    func setAdAlertMessage(){
+        isShowAdReward = true
     }
 }
 

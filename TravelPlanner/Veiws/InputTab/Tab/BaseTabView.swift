@@ -19,7 +19,11 @@ struct BaseTabView: View {
         
         VStack(spacing: 0) {
             Divider()
+            
             TopTabView(list: list, selectedTab: $selectedTab)
+            
+            AdMobBannerView()
+                .frame(height: 50)
             TabView(selection: $selectedTab,
                     content: {
                 //入力画面
@@ -37,6 +41,7 @@ struct BaseTabView: View {
             })
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .disabled(!vm.canSwipe)
+            
         }
         .modifier(CommonModifier(vm: vm))
         .navigationBarTitleDisplayMode(.inline)

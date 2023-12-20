@@ -14,10 +14,15 @@ struct ScheduleModel: Codable {
 struct DayPlanModel: Codable,Hashable {
     var day: Int
     var beginTime: String
-    var endTime: String
+    var endTime:  String
     var title: String
     var description: String
+    
+    static func createSampleDayPlan() -> DayPlanModel {
+            return DayPlanModel(day: 1, beginTime: "09:00", endTime: "12:00", title: "Sample Plan", description: "Sample Description")
+    }
 }
+
 
 extension ScheduleModel {
     static func loadModelData() -> ScheduleModel {

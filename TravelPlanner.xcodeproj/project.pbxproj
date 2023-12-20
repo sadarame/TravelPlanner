@@ -11,6 +11,9 @@
 		161D78572B0DCF5500C17982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D78562B0DCF5500C17982 /* Assets.xcassets */; };
 		161D785A2B0DCF5500C17982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D78592B0DCF5500C17982 /* Preview Assets.xcassets */; };
 		162FCEE42B3029BC004A5B86 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162FCEE32B3029BC004A5B86 /* CalendarView.swift */; };
+		162FCEE72B31A0C0004A5B86 /* AdMobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162FCEE62B31A0C0004A5B86 /* AdMobBannerView.swift */; };
+		162FCEE92B31A94C004A5B86 /* AdMobInterstitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162FCEE82B31A94C004A5B86 /* AdMobInterstitialView.swift */; };
+		162FCEEB2B32BB35004A5B86 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162FCEEA2B32BB35004A5B86 /* Reward.swift */; };
 		1674C8CF2B25D6FB00C53EE1 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8CE2B25D6FB00C53EE1 /* MessageModel.swift */; };
 		1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */; };
 		1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D42B28B34C00C53EE1 /* SharedVM.swift */; };
@@ -30,7 +33,6 @@
 		16A2CE8B2B1D987A00917917 /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE8A2B1D987A00917917 /* TopTabView.swift */; };
 		16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE8C2B1D9C5F00917917 /* InputPlanView.swift */; };
 		16A2CE902B1EB40A00917917 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE8F2B1EB40A00917917 /* ScheduleModel.swift */; };
-		16A2CE932B1EB60900917917 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE922B1EB60900917917 /* DetailView.swift */; };
 		16A2CE992B1EB99D00917917 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE982B1EB99D00917917 /* HistoryView.swift */; };
 		16A2CE9B2B1EB9CB00917917 /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE9A2B1EB9CB00917917 /* ResponseView.swift */; };
 		16A2CE9D2B1EBB2900917917 /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CE9C2B1EBB2900917917 /* SharedView.swift */; };
@@ -51,6 +53,9 @@
 		161D78562B0DCF5500C17982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		161D78592B0DCF5500C17982 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		162FCEE32B3029BC004A5B86 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		162FCEE62B31A0C0004A5B86 /* AdMobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerView.swift; sourceTree = "<group>"; };
+		162FCEE82B31A94C004A5B86 /* AdMobInterstitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobInterstitialView.swift; sourceTree = "<group>"; };
+		162FCEEA2B32BB35004A5B86 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		1674C8CE2B25D6FB00C53EE1 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPressModel.swift; sourceTree = "<group>"; };
 		1674C8D42B28B34C00C53EE1 /* SharedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVM.swift; sourceTree = "<group>"; };
@@ -71,7 +76,6 @@
 		16A2CE8A2B1D987A00917917 /* TopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabView.swift; sourceTree = "<group>"; };
 		16A2CE8C2B1D9C5F00917917 /* InputPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPlanView.swift; sourceTree = "<group>"; };
 		16A2CE8F2B1EB40A00917917 /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
-		16A2CE922B1EB60900917917 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		16A2CE982B1EB99D00917917 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		16A2CE9A2B1EB9CB00917917 /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
 		16A2CE9C2B1EBB2900917917 /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
@@ -152,6 +156,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		162FCEE52B31A09C004A5B86 /* AddMob */ = {
+			isa = PBXGroup;
+			children = (
+				162FCEE62B31A0C0004A5B86 /* AdMobBannerView.swift */,
+				162FCEEA2B32BB35004A5B86 /* Reward.swift */,
+				162FCEE82B31A94C004A5B86 /* AdMobInterstitialView.swift */,
+			);
+			path = AddMob;
+			sourceTree = "<group>";
+		};
 		16A1CA572B216CFE0054BA39 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				16A2CE862B1D929600917917 /* ParentView.swift */,
+				162FCEE52B31A09C004A5B86 /* AddMob */,
 				16A1CA572B216CFE0054BA39 /* Common */,
 				16A2CE952B1EB94600917917 /* InputTab */,
 				16A2CE912B1EB5B900917917 /* CalendarTab */,
@@ -200,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				162FCEE32B3029BC004A5B86 /* CalendarView.swift */,
-				16A2CE922B1EB60900917917 /* DetailView.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -370,7 +384,6 @@
 			files = (
 				16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */,
 				1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */,
-				16A2CE932B1EB60900917917 /* DetailView.swift in Sources */,
 				16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */,
 				16E6B5412B2D490F008A2A51 /* CalendarVM.swift in Sources */,
 				16A2CEA82B1EE5C300917917 /* UserDefaultManager.swift in Sources */,
@@ -381,13 +394,16 @@
 				16A2CE9D2B1EBB2900917917 /* SharedView.swift in Sources */,
 				16A1CA622B21B0550054BA39 /* Enum.swift in Sources */,
 				16A1CAA22B2492B50054BA39 /* MstModel.swift in Sources */,
+				162FCEEB2B32BB35004A5B86 /* Reward.swift in Sources */,
 				16A2CE8B2B1D987A00917917 /* TopTabView.swift in Sources */,
 				1674C8D72B28B64E00C53EE1 /* SharedModel.swift in Sources */,
+				162FCEE72B31A0C0004A5B86 /* AdMobBannerView.swift in Sources */,
 				1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */,
 				16A2CE872B1D929600917917 /* ParentView.swift in Sources */,
 				16A2CEA12B1EE33C00917917 /* BaseVM.swift in Sources */,
 				16A1CAA42B2550EA0054BA39 /* GlobalViewModel.swift in Sources */,
 				16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */,
+				162FCEE92B31A94C004A5B86 /* AdMobInterstitialView.swift in Sources */,
 				16A2CE9B2B1EB9CB00917917 /* ResponseView.swift in Sources */,
 				16A2CE892B1D978D00917917 /* BaseTabView.swift in Sources */,
 				16E6B53D2B2D446A008A2A51 /* ResultPlanModel.swift in Sources */,

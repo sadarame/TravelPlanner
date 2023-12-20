@@ -12,6 +12,7 @@ struct InputPlanView: View {
     @Binding var selectedTab: Int
     @Binding var canSwipe: Bool
     @ObservedObject var vm: InputPlanVM
+    @ObservedObject var adMobInterstitialView = AdMobInterstitialView()
     @EnvironmentObject var appState: AppState
     
     @Environment(\.scenePhase) private var scenePhase
@@ -35,11 +36,14 @@ struct InputPlanView: View {
                     .frame(height: geometry.size.height * 0.01)
                 
                 buttonArea()
-//                    .frame(height: geometry.size.height * 0.25)
-//                    .padding(.bottom)
+  
             }
             .padding()
-            .onAppear(perform: vm.onloadView)
+            .onAppear{
+                vm.onloadView()
+                adMobInterstitialView.loadInterstitial()
+            }
+            
             .modifier(CommonModifier(vm: vm))
             .onChange(of: scenePhase) { phase in
                 if phase == .background {
@@ -48,7 +52,7 @@ struct InputPlanView: View {
             }
         }
     }
-    
+    // MARK: - 旅行の期間を表示する
     private func durationPicker() -> some View {
         HStack {
             Text("旅行日数を選択")
@@ -63,6 +67,7 @@ struct InputPlanView: View {
         }
     }
     
+    // MARK: - 旅行の期間を表示する
     private func inputArea() -> some View {
         TextEditor(text: $appState.txt)
             
@@ -82,6 +87,7 @@ struct InputPlanView: View {
             }
     }
     
+    // MARK: - プレースホルダー表示
     private func placeholderView() -> some View {
         Text(Const.msg_placeholder)
             .allowsHitTesting(false)
@@ -94,6 +100,7 @@ struct InputPlanView: View {
             .stroke(Color.gray.opacity(0.5), lineWidth: 1)
     }
     
+    // MARK: - キーボード閉じる
     private func keyboardToolbar() -> some ToolbarContent {
         ToolbarItemGroup(placement: .keyboard) {
             Spacer()
@@ -103,15 +110,23 @@ struct InputPlanView: View {
         }
     }
     
+    // MARK: - 上限表示エリア
     private func characterCountView() -> some View {
         HStack {
             Spacer()
             Text("文字数: \(String(format: "%03d", appState.txt.count))/\(Const.travelPlanLimit)")
                 .foregroundColor(appState.txt.count > Const.travelPlanLimit ? .red : .primary)
+            
+            Text("一日上限: \(String(format: "%01d", vm.numberOfButtonPressesToday()))/\(loadMstData().MaxLimit)")
+                .foregroundColor(appState.txt.count > Const.travelPlanLimit ? .red : .primary)
+            
+            
         }
     }
     
+    // MARK: - ボタンエリア
     private func buttonArea() -> some View {
+        
         HStack {
             fmtButtonArea()
             
@@ -122,26 +137,52 @@ struct InputPlanView: View {
         
     }
     
+    // MARK: - FMTボタン
     private func fmtButtonArea() -> some View {
-        VStack {
-            Button("ボタン") {
-                // ボタンがタップされたときの処理を追加
+        VStack{
+            HStack {
+                VStack {
+                    CustomFmtButton(label: "FMT①") {
+                        // ボタンがタップされたときの処理を追加
+                        appState.txt = vm.formatText(loadMstData().fmt_sample_1)
+                    }
+                    
+                    
+                    CustomFmtButton(label: "FMT②") {
+                        // ボタンがタップされたときの処理を追加
+                        appState.txt = vm.formatText(loadMstData().fmt_sample_2)
+                    }
+                  
+                    
+                }
+                
+                
+                VStack {
+                    CustomFmtButton(label: "FMT③") {
+                        // ボタンがタップされたときの処理を追加
+                        appState.txt = vm.formatText(loadMstData().fmt_sample_3)
+                    }
+                    
+                    
+                    CustomFmtButton(label: "FMT④") {
+                        // ボタンがタップされたときの処理を追加
+                        appState.txt = vm.formatText(loadMstData().fmt_sample_4)
+                    }
+                   
+                }
             }
-            .buttonStyle(CustomButtonStyle())
-            Button("ボタン") {
-                // ボタンがタップされたときの処理を追加
-            }
-            .buttonStyle(CustomButtonStyle())
         }
     }
-    
+
+    // MARK: - クリア、送信ボタン
     private func sendButtonArea() -> some View {
         HStack {
-            CustomButton(label: "クリア") {
+            CustomActionButton(label: "クリア") {
                 appState.txt = ""
             }
             
-            CustomButton(label: "作成") {
+            CustomActionButton(label: "日程作成 ") {
+                adMobInterstitialView.presentInterstitial()
                 vm.createTravelPlan(txt: appState.txt)
             }
         }
@@ -151,7 +192,7 @@ struct InputPlanView: View {
 
 
 
-
+// MARK: - ボタンのカスタマイズ
 struct CustomButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -161,12 +202,35 @@ struct CustomButtonStyle: ButtonStyle {
     }
 }
 
-struct CustomButton: View {
+struct CustomActButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(configuration.isPressed ? Color.gray.opacity(0.5) : Color.gray.opacity(0.2))
+            .cornerRadius(8)
+
+    }
+}
+
+
+
+struct CustomFmtButton: View {
     var label: String
     var action: () -> Void
     
     var body: some View {
         Button(label, action: action)
             .buttonStyle(CustomButtonStyle())
+    }
+}
+
+struct CustomActionButton: View {
+    var label: String
+    var action: () -> Void
+    
+    var body: some View {
+        Button(label, action: action)
+            .buttonStyle(CustomActButtonStyle())
+            
     }
 }

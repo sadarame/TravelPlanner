@@ -12,6 +12,8 @@ class InputPlanVM: BaseVM {
     
     @Published var model:TravelPlanModel = TravelPlanModel()
     
+    @AppStorage("isShowedReward") var isShowedReward: Bool = false
+    
     //送信制限のためのモデル
     var buttonPressModel:ButtonPressModel = ButtonPressModel()
     
@@ -32,6 +34,12 @@ class InputPlanVM: BaseVM {
     
     func onloadView(){
        
+    }
+    
+    func formatText(_ text: String) -> String {
+        var cleanedText = text.replacingOccurrences(of: "\\n", with: "\n")
+        cleanedText = cleanedText.replacingOccurrences(of: " ", with: "")
+        return cleanedText
     }
     
     // MARK: - GPTに送る前段処理
@@ -65,12 +73,11 @@ class InputPlanVM: BaseVM {
             //カレンダービューへ遷移
             GlobalViewModel.shared.selection = 2
             
-            
         }
     }
     
     //上限計算
-    func isRequestLimit() {
+    func isRequestLimit() -> Bool {
         
         buttonPressModel = loadButtonPressModel()
         
@@ -81,19 +88,50 @@ class InputPlanVM: BaseVM {
             // 制限回数内で、前回の押下が昨日以前の場合
             buttonPressModel.buttonPressCount = 1
         }
+        
+        if buttonPressModel.buttonPressCount > 5 {
+            return true
+            
+        } else {
+            saveButtonPressModel(buttonPressModel)
+        }
+        
+        return false
+    }
+
+    
+    // 今日何回ボタンが押されたかを返すメソッド
+    func numberOfButtonPressesToday() -> Int {
+        var buttonPressModel = loadButtonPressModel()
+        
+        // もし今日の日付と最後にボタンが押された日が同じであれば
+        if Calendar.current.isDateInToday(buttonPressModel.lastPressDate) {
+            return buttonPressModel.buttonPressCount
+        } else {
+            // 同じ日でない場合は、今日の日付を更新してボタンカウントをリセット
+            buttonPressModel.lastPressDate = Date()
+            buttonPressModel.buttonPressCount = 0 // ここを1から始めたい場合は1に変更してください
+            saveButtonPressModel(buttonPressModel)
+            return 0 // カウントが0であることを返す
+        }
         //保存
         saveButtonPressModel(buttonPressModel)
     }
-
+    
     // MARK: - GPTへリクエスト
     func requestGpt() {
         
-        isRequestLimit()
-        
-        //一日の上限を超えてた場合
-        if buttonPressModel.isOverMaxCount {
-            GlobalViewModel.shared.setAlertMessage(message: Const.msg_error_limit)
-            return
+        //リクエスト上限の場合
+        if isRequestLimit() {
+            if !isShowedReward {
+                GlobalViewModel.shared.setAdAlertMessage()
+                return
+            //見てた場合
+            } else {
+                //エラーチェックは通すけど、みてない扱いにする
+                isShowedReward = false
+            }
+            
         }
         
         //スワイプできないように制御

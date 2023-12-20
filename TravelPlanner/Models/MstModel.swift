@@ -15,4 +15,9 @@ struct MstModel: Codable {
     var json_fmt: String = ""
     var system_message: String = ""
     
+    var fmt_sample_1: String  = ""
+    var fmt_sample_2: String  = ""
+    var fmt_sample_3: String  = ""
+    var fmt_sample_4: String  = ""
+    
 }

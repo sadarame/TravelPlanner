@@ -20,20 +20,17 @@ struct CalendarView: View {
     let widthTimeArea:CGFloat = 2
     //スケジュール列の横幅
     let widthScheduleArea:CGFloat = 8
+    
     //文字サイズ
     let font_size_time:CGFloat = 18
     
     
-    
-    let height_half_cell:CGFloat = 2
-    
     //ボタンの高さ用
-    
+//    
     let weight_cell_button:CGFloat = 0.9
     let height_header:CGFloat = 50
     
     init() {
-        CalendarVM.shared.durlation = 1
     }
     
     
@@ -69,7 +66,7 @@ struct CalendarView: View {
                         HStack(spacing:0){
                             ForEach(0...vm.durlation, id: \.self) { day in
                                 //スケジュール帳
-                                Divider()
+                               
                                 ZStack{
                                     VStack(spacing:0){
                                         //タイムライン
@@ -97,13 +94,16 @@ struct CalendarView: View {
                                         
                                         ForEach(vm.getPlansForDayOne(days: day), id: \.self) { plan in
                                             // ボタンエリア
-                                            ScheduleButton(dayPlan: plan)
+                                            ScheduleButton(dayPlan: plan){
+                                                vm.isShowModal.toggle()
+                                                vm.plan = plan
+                                            }
                                                 .frame(width: (geometry.size.width * widthScheduleArea / population) / CGFloat(vm.durlation) * weight_cell_button, height: vm.calcButtonHeight(plan: plan))
-                                                .offset(x: 0 / population, y: -100)
+                                                .offset(x: 0 / population, y: vm.calcButtonOffset(plan: plan))
                                         }
                                     }
                                 }
-                                
+                                Divider()
                             }
                         }
                     }
@@ -112,16 +112,23 @@ struct CalendarView: View {
                         reader.scrollTo(scroll_num, anchor: .center)
                     }
                 }
+                .sheet(isPresented: $vm.isShowModal) {
+                    // シートの内容
+                    DetailView(dayPlan: vm.plan)
+                        .presentationDetents([.medium])
+                }
             }
         }
     }
 }
 struct ScheduleButton: View {
     var dayPlan: DayPlanModel
+    var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
             // Handle button tap, e.g., navigate to detail view
+            onTap?()
         }) {
             // カスタムデザインのボタンに変更
             ZStack {
@@ -130,9 +137,48 @@ struct ScheduleButton: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Text(dayPlan.title)
                     .foregroundColor(.white)
-                //                    .padding()
+             
             }
         }
     }
 }
+
+struct DetailView: View {
+    var dayPlan: DayPlanModel
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        NavigationView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("タイトル:")
+                    .font(.headline)
+                Text(dayPlan.title)
+                    .font(.body)
+                Text("開始時刻:")
+                    .font(.headline)
+                Text(dayPlan.beginTime)
+                    .font(.body)
+                Text("終了時刻:")
+                    .font(.headline)
+                Text(dayPlan.endTime)
+                    .font(.body)
+                Text("詳細:")
+                    .font(.headline)
+                Text(dayPlan.description)
+                    .font(.body)
+            }
+            .padding()
+            .navigationBarTitle(dayPlan.title, displayMode: .inline)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title)
+                }
+            )
+        }
+    }
+}
+
 
