@@ -19,22 +19,71 @@ class InputPlanVM: BaseVM {
     
     //画面制御用のバインディング
     @Binding var selectedTab: Int
-    @Binding var canSwiped: Bool
     
     //リクエストを送った回数
     @AppStorage("lastUserMessageID") var lastUserMessageID = ""
     @AppStorage("durlation") var durlation: Int = 1
     
     // MARK: 初期処理
-    init(selectedTab: Binding<Int>,canSwipe: Binding<Bool>) {
+    init(selectedTab: Binding<Int>) {
         
         self._selectedTab = selectedTab
-        self._canSwiped = canSwipe
     }
     
     func onloadView(){
        
     }
+    
+    func localizingFormatStr(type: Int) -> String {
+        let currentLocale = Locale.current
+        let languageCode = currentLocale.languageCode ?? "ja"  // 言語コードが取得できない場合はデフォルトの"en"を使用
+        
+        switch type {
+        case 1:
+            switch languageCode {
+            case "ja":
+                return loadMstData().fmt_sample_1
+            case "en":
+                return loadMstData().fmt_sample_en_1
+            default:
+                return loadMstData().fmt_sample_en_1
+            }
+            
+        case 2:
+            switch languageCode {
+            case "ja":
+                return loadMstData().fmt_sample_2
+            case "en":
+                return loadMstData().fmt_sample_en_2
+            default:
+                return loadMstData().fmt_sample_en_2
+            }
+            
+        case 3:
+            switch languageCode {
+            case "ja":
+                return loadMstData().fmt_sample_3
+            case "en":
+                return loadMstData().fmt_sample_en_3
+            default:
+                return loadMstData().fmt_sample_en_3
+            }
+            
+        case 4:
+            switch languageCode {
+            case "ja":
+                return loadMstData().fmt_sample_4
+            case "en":
+                return loadMstData().fmt_sample_en_4
+            default:
+                return loadMstData().fmt_sample_en_4
+            }
+            
+        default:
+            return loadMstData().fmt_sample_1
+        }
+    }
+
     
     func formatText(_ text: String) -> String {
         var cleanedText = text.replacingOccurrences(of: "\\n", with: "\n")
@@ -46,7 +95,7 @@ class InputPlanVM: BaseVM {
     func createTravelPlan(txt:String){
         model.text = txt
         //履歴を保存
-        saveTravelPlanHist(model)
+//        saveTravelPlanHist(model)
         //リクエスト送信
         requestGpt()
     }
@@ -64,7 +113,7 @@ class InputPlanVM: BaseVM {
             
             //応答画面用に直近のでデータ保存（微妙だからあとで見直し）
             saveGptText(resModel.responseMessage)
-            self.canSwiped = true
+            GlobalViewModel.shared.isDisEditable = false
             
             //GPTからの応答をモデルに変換
             self.durlation = self.model.travelDuration
@@ -132,10 +181,12 @@ class InputPlanVM: BaseVM {
                 isShowedReward = false
             }
             
+        } else {
+            GlobalViewModel.shared.adMobInterstitialView.presentInterstitial()
         }
         
         //スワイプできないように制御
-        canSwiped = false
+        GlobalViewModel.shared.isDisEditable = true
         
         //定型文と結合して送信
         let user_message = model.text
@@ -160,13 +211,13 @@ class InputPlanVM: BaseVM {
                            
                        case .failure(let error):
                            // エラー時の処理
-                           self.showUserMessage(withMessage: Const.msg_error_API)
+                           GlobalViewModel.shared.setAlertMessage(message: Const.msg_error_API)
                            print("Error converting data to JSON: \(error)")
                           
                        }
                    }
                }catch {
-                   self.showUserMessage(withMessage: Const.msg_error_common)
+                   GlobalViewModel.shared.setAlertMessage(message: Const.msg_error_common)
                    print("Error converting data to JSON: \(error)")
         }
     }

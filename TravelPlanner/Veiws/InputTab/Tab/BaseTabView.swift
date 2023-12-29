@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import AppTrackingTransparency
+import GoogleMobileAds
 
 struct BaseTabView: View {
     
     @State private var selectedTab: Int = 0
     @ObservedObject var vm:BaseVM = BaseVM()
     
-
-    let list: [String] = ["入力", "履歴", "応答", "みんな旅行計画"]
+    let list: [String] = [Const.label_tab_input, Const.label_tab_hist, Const.label_tab_reponse, Const.label_tab_othersPlan]
 
     var body: some View {
         
@@ -21,13 +22,15 @@ struct BaseTabView: View {
             Divider()
             
             TopTabView(list: list, selectedTab: $selectedTab)
-            
+            //広告表示
             AdMobBannerView()
                 .frame(height: 50)
+            
+            
             TabView(selection: $selectedTab,
                     content: {
                 //入力画面
-                InputPlanView(selectedTab: $selectedTab, canSwipe: $vm.canSwipe)
+                InputPlanView(selectedTab: $selectedTab)
                     .tag(0)
                 //履歴画面
                 HistoryView(selectedTab: $selectedTab)
@@ -40,10 +43,16 @@ struct BaseTabView: View {
                     .tag(3)
             })
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .disabled(!vm.canSwipe)
-            
         }
-        .modifier(CommonModifier(vm: vm))
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            // トラッキングの許諾ダイアログメッセージを表示
+            Task {
+                let result = await ATTrackingManager.requestTrackingAuthorization()
+                if result == .authorized {
+                    GADMobileAds.sharedInstance().start(completionHandler: nil)
+                }
+            }
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
 }

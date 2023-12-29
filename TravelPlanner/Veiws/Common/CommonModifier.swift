@@ -10,16 +10,15 @@ import SwiftUI
 
 struct CommonModifier: ViewModifier {
     
-    @ObservedObject var vm: BaseVM
+    @EnvironmentObject var gvm: GlobalViewModel
     
     func body(content: Content) -> some View {
         ZStack {
             content
-            
-            .disabled(vm.isDisEditable)
+                .disabled(gvm.isDisEditable)
             
             //処理中の画像表示
-            if vm.isShowProgres || !vm.canSwipe {
+            if gvm.isShowProgres {
                 ProgressView(Const.msg_loading)
                     .progressViewStyle(CircularProgressViewStyle())
                     .padding()
@@ -28,12 +27,26 @@ struct CommonModifier: ViewModifier {
             }
             
         }
-        
-        //エラーメッセージ
-        .alert(isPresented: $vm.isShowingMessage) {
-            Alert(title: Text("Error"), message: Text(vm.userMessage), dismissButton: .default(Text("OK"),action: {
-                vm.hideUserMessage()
-            }))
+
+        .alert(isPresented: $gvm.isShowMessage) {
+            Alert(
+                title: Text("お知らせ"),
+                message: Text(gvm.message),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+        //リワード広告用のアラート
+        .alert(isPresented: $gvm.isShowAdReward) {
+            Alert(
+                title: Text("上限超過"),
+                message: Text("リワード広告を見て、回数を増やしますか？"),
+                primaryButton: .default(Text("OK"), action: {
+                    // 広告を表示する
+                    gvm.reward.ShowReward()
+                   
+                }),
+                secondaryButton: .cancel()
+            )
         }
 
     }

@@ -20,4 +20,9 @@ struct MstModel: Codable {
     var fmt_sample_3: String  = ""
     var fmt_sample_4: String  = ""
     
+    var fmt_sample_en_1: String  = ""
+    var fmt_sample_en_2: String  = ""
+    var fmt_sample_en_3: String  = ""
+    var fmt_sample_en_4: String  = ""
+    
 }

@@ -25,7 +25,7 @@ struct HistoryView: View {
                     .font(.headline)
                 Text("日時: \(formattedDate(plan.date))")
                     .font(.subheadline)
-                Spacer()  
+
             }
             .contentShape(Rectangle())
             .onTapGesture {
@@ -39,8 +39,7 @@ struct HistoryView: View {
     //日付
     private func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }
 }

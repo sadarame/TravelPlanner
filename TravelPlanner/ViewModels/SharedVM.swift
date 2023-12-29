@@ -26,20 +26,24 @@ class SharedVM: BaseVM {
         let db = Firestore.firestore()
         let collectionRef = db.collection("Shared")
         
-        // ドキュメントの取得とlimitの適用
-        collectionRef.limit(to: Const.fetchlimit).getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error.localizedDescription)")
-            } else {
-                // Firestoreから取得したデータをYourDataType型にデコード
-                do {
-                    self.data = try querySnapshot?.documents.compactMap { document in
-                        try document.data(as: SharedModel.self)
-                    } ?? []
-                } catch let error {
-                    print("Error decoding data: \(error.localizedDescription)")
+        // timestampフィールドを基準に降順でデータを取得するようにクエリを設定
+        collectionRef
+            .order(by: "timestamp", descending: true)  // ここでtimestampに対して降順にソート
+            .limit(to: Const.fetchlimit)
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error.localizedDescription)")
+                } else {
+                    // Firestoreから取得したデータをYourDataType型にデコード
+                    do {
+                        self.data = try querySnapshot?.documents.compactMap { document in
+                            try document.data(as: SharedModel.self)
+                        } ?? []
+                    } catch let error {
+                        print("Error decoding data: \(error.localizedDescription)")
+                    }
                 }
             }
-        }
     }
+
 }

@@ -20,10 +20,9 @@ class Reward: NSObject, GADFullScreenContentDelegate, ObservableObject {
 
     // リワード広告の読み込み
     func LoadReward() {
-        //本番
-//        let unitID = "ca-app-pub-5529798279445729/3090271573"
-        //テスト
-        let unitID = "ca-app-pub-3940256099942544/1712485313"
+
+        //idを指定
+        let unitID = Const.adUinitIDReward
         
         GADRewardedAd.load(withAdUnitID: unitID, request: GADRequest()) { (ad, error) in
             if let _ = error {
@@ -48,6 +47,7 @@ class Reward: NSObject, GADFullScreenContentDelegate, ObservableObject {
                 self.rewardLoaded = false
                 //報酬ゲット
                 self.isShowedReward = true
+                self.LoadReward()
             })
         } else {
             print("😭: 広告の準備ができていませんでした")

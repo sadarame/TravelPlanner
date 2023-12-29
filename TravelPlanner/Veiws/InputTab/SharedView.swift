@@ -22,7 +22,9 @@ struct SharedView: View {
             VStack(alignment: .leading) {
                 Text(String(plan.input_message.prefix(Const.textMaxLength)))
                     .font(.headline)
-                Spacer()
+                Text("日時: \(formattedDate(plan.timestamp))")
+                    .font(.subheadline)
+               
             }
             .contentShape(Rectangle())
             .onTapGesture {
@@ -36,8 +38,7 @@ struct SharedView: View {
     //日付
     private func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }
 }

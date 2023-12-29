@@ -10,17 +10,16 @@ import SwiftUI
 struct InputPlanView: View {
     
     @Binding var selectedTab: Int
-    @Binding var canSwipe: Bool
     @ObservedObject var vm: InputPlanVM
-    @ObservedObject var adMobInterstitialView = AdMobInterstitialView()
+    
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var gvm: GlobalViewModel
     
     @Environment(\.scenePhase) private var scenePhase
     
-    init(selectedTab: Binding<Int>, canSwipe: Binding<Bool>) {
+    init(selectedTab: Binding<Int>) {
         self._selectedTab = selectedTab
-        self._canSwipe = canSwipe
-        self.vm = InputPlanVM(selectedTab: selectedTab, canSwipe: canSwipe)
+        self.vm = InputPlanVM(selectedTab: selectedTab)
     }
     
     var body: some View {
@@ -38,16 +37,12 @@ struct InputPlanView: View {
                 buttonArea()
   
             }
-            .padding()
-            .onAppear{
-                vm.onloadView()
-                adMobInterstitialView.loadInterstitial()
-            }
-            
-            .modifier(CommonModifier(vm: vm))
+            .padding()            
+            //バックグラウンドにいったら通信をやめるのでプログレスバーと編集制御をやめる
             .onChange(of: scenePhase) { phase in
                 if phase == .background {
-                    canSwipe = true
+                    gvm.isDisEditable = false
+                    gvm.isShowProgres = false
                 }
             }
         }
@@ -58,7 +53,7 @@ struct InputPlanView: View {
             Text("旅行日数を選択")
                 .padding()
             
-            Picker("日数を選択", selection: $vm.model.travelDuration) {
+            Picker("", selection: $vm.model.travelDuration) {
                 Text("1日").tag(1)
                 Text("2日").tag(2)
                 Text("3日").tag(3)
@@ -142,15 +137,15 @@ struct InputPlanView: View {
         VStack{
             HStack {
                 VStack {
-                    CustomFmtButton(label: "FMT①") {
+                    CustomFmtButton(label: Const.label_fmt_1) {
                         // ボタンがタップされたときの処理を追加
-                        appState.txt = vm.formatText(loadMstData().fmt_sample_1)
+                        appState.txt = vm.formatText(vm.localizingFormatStr(type: 1))
                     }
                     
                     
-                    CustomFmtButton(label: "FMT②") {
+                    CustomFmtButton(label: Const.label_fmt_2) {
                         // ボタンがタップされたときの処理を追加
-                        appState.txt = vm.formatText(loadMstData().fmt_sample_2)
+                        appState.txt = vm.formatText(vm.localizingFormatStr(type: 2))
                     }
                   
                     
@@ -158,15 +153,15 @@ struct InputPlanView: View {
                 
                 
                 VStack {
-                    CustomFmtButton(label: "FMT③") {
+                    CustomFmtButton(label: Const.label_fmt_3) {
                         // ボタンがタップされたときの処理を追加
-                        appState.txt = vm.formatText(loadMstData().fmt_sample_3)
+                        appState.txt = vm.formatText(vm.localizingFormatStr(type: 3))
                     }
                     
                     
-                    CustomFmtButton(label: "FMT④") {
+                    CustomFmtButton(label: Const.label_fmt_4) {
                         // ボタンがタップされたときの処理を追加
-                        appState.txt = vm.formatText(loadMstData().fmt_sample_4)
+                        appState.txt = vm.formatText(vm.localizingFormatStr(type: 4))
                     }
                    
                 }
@@ -177,12 +172,11 @@ struct InputPlanView: View {
     // MARK: - クリア、送信ボタン
     private func sendButtonArea() -> some View {
         HStack {
-            CustomActionButton(label: "クリア") {
+            CustomActionButton(label: Const.label_clear) {
                 appState.txt = ""
             }
             
-            CustomActionButton(label: "日程作成 ") {
-                adMobInterstitialView.presentInterstitial()
+            CustomActionButton(label: Const.label_create) {
                 vm.createTravelPlan(txt: appState.txt)
             }
         }

@@ -22,7 +22,22 @@ final class GlobalViewModel: ObservableObject {
     //タブ移動用のフラグ
     @Published var selection = 1
     
-    private init() {}
+    //プログレスエフェクト表示制御
+    @Published var isShowProgres = false
+    //エラーメッセージ制御
+    @Published var isShowingMessage: Bool = false
+    @Published var userMessage: String = ""
+    //画面制御
+    @Published var isDisEditable:Bool = false
+    
+    @Published var reward = Reward()
+    @Published var adMobInterstitialView = AdMobInterstitialView()
+    
+    private init() {
+        //リワード広告の読み込み
+        reward.LoadReward()
+        adMobInterstitialView.loadInterstitial()
+    }
     
     func fetchFireStore() {
         //マスタデータの取得

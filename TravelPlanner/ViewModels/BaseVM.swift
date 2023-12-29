@@ -12,18 +12,6 @@ import FirebaseFirestore
 
 class BaseVM: NSObject, ObservableObject {
     
-    //プログレスエフェクト表示制御
-    @Published var isShowProgres = false
-    //エラーメッセージ制御
-    @Published var isShowingMessage: Bool = false
-    @Published var userMessage: String = ""
-    //画面制御
-    @Published var isDisEditable:Bool = false
-    @Published var canSwipe:Bool = true
-    
-    
-    
-    
     // MARK: - AppStore遷移
     func openAppStore() {
         guard let appStoreURL = URL(string: "https://itunes.apple.com/app/6459478923") else {
@@ -32,24 +20,11 @@ class BaseVM: NSObject, ObservableObject {
         UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
     }
 
-
-    
-    // ポップアップを表示するメソッド
-    func showUserMessage(withMessage message: String) {
-        userMessage = message
-        isShowingMessage = true
-    }
-    
-    // ポップアップを非表示にするメソッド
-    func hideUserMessage() {
-        isShowingMessage = false
-    }
-
     //引数ありでAPIコールする用のメソッド
     func fetchDataFromAPI<T: Decodable>(url: String, jsonData:Data, completion: @escaping (Result<T, Error>) -> Void) {
         
-        isDisEditable = true
-        isShowProgres = true
+        GlobalViewModel.shared.isDisEditable = true
+        GlobalViewModel.shared.isShowProgres = true
         
         guard let url = URL(string: url) else {
             completion(.failure(APIError.invalidURL))
@@ -67,8 +42,8 @@ class BaseVM: NSObject, ObservableObject {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
-                self.isShowProgres = false
-                self.isDisEditable = false
+                GlobalViewModel.shared.isShowProgres = false
+                GlobalViewModel.shared.isDisEditable = false
             }
             
             if let error = error {

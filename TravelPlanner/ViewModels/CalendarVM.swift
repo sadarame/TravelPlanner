@@ -23,13 +23,13 @@ final class CalendarVM: BaseVM {
     
     
     //セルの高さ
-    let height_cell:CGFloat = 100
+    let height_cell:CGFloat = 50
     //時間ごとに増えるofsset
-    let offset_per_hour:CGFloat = 50
+    let offset_per_hour:CGFloat = 25
     //ボタンの高さの割合（セルの高さにかけて使う）
     let height_cell_button:CGFloat = 0.95
     //オフセットの開始位置
-    let begin_offset:CGFloat = -1100
+    let begin_offset:CGFloat = -550
     
 
     //受け取った期間の予定を返却する

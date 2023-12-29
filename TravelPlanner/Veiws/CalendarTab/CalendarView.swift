@@ -26,7 +26,6 @@ struct CalendarView: View {
     
     
     //ボタンの高さ用
-//    
     let weight_cell_button:CGFloat = 0.9
     let height_header:CGFloat = 50
     

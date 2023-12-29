@@ -21,11 +21,8 @@ class AdMobInterstitialView: NSObject, GADFullScreenContentDelegate, ObservableO
 
     // リワード広告の読み込み
     func loadInterstitial() {
-        //本番
-//        let unitID = "ca-app-pub-5529798279445729/6441524927"
-        
-        //テスト
-        let unitID = "ca-app-pub-3940256099942544/4411468910"
+        //idを指定
+        let unitID = Const.adUinitIDInter
         
         GADInterstitialAd.load(withAdUnitID: unitID, request: GADRequest()) { (ad, error) in
             if let _ = error {
@@ -62,13 +59,15 @@ class AdMobInterstitialView: NSObject, GADFullScreenContentDelegate, ObservableO
     // 表示通知
     func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("インタースティシャル広告を表示しました")
-        self.interstitialAdLoaded = false
+        
+//        self.interstitialAdLoaded = false
     }
 
     // クローズ通知
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("インタースティシャル広告を閉じました")
-        self.interstitialAdLoaded = false
+        self.loadInterstitial()
+//        self.interstitialAdLoaded = false
     }
 }
 

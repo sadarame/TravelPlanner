@@ -15,5 +15,6 @@ struct SharedModel: Identifiable, Codable {
     var input_message: String
     var response_message: String
     var user_id: String
+    var timestamp: Date
 
 }
