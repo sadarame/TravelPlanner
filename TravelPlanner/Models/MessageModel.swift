@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 struct MessageModel: Identifiable, Codable {
     @DocumentID var id: String?
     var message: String
+    var en_message: String
     var createAt: Date
     var dateFrom: Date
     var dateTo: Date

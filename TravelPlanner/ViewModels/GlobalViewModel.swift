@@ -81,11 +81,26 @@ final class GlobalViewModel: ObservableObject {
 
                     self?.isShowMessage = true
                     
-                    self?.message = userMessage.message
+                    //localrization
+                    self?.message = self!.localizingFormatModel(model: userMessage)
 
                     self?.lastUserMessageID = userMessage.id ?? ""
                 }
             }
+        }
+    }
+    
+    func localizingFormatModel(model:MessageModel) -> String {
+        let currentLocale = Locale.current
+        let languageCode = currentLocale.languageCode ?? "ja"
+        
+        switch languageCode {
+        case "ja":
+            return model.message
+        case "en":
+            return model.en_message
+        default:
+            return model.message
         }
     }
     

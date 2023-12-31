@@ -142,6 +142,7 @@ struct ScheduleButton: View {
     }
 }
 
+
 struct DetailView: View {
     var dayPlan: DayPlanModel
     @Environment(\.presentationMode) var presentationMode
@@ -149,22 +150,30 @@ struct DetailView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("タイトル:")
-                    .font(.headline)
-                Text(dayPlan.title)
-                    .font(.body)
-                Text("開始時刻:")
-                    .font(.headline)
-                Text(dayPlan.beginTime)
-                    .font(.body)
-                Text("終了時刻:")
-                    .font(.headline)
-                Text(dayPlan.endTime)
-                    .font(.body)
-                Text("詳細:")
-                    .font(.headline)
-                Text(dayPlan.description)
-                    .font(.body)
+                HStack {
+                    Text("タイトル:")
+                        .font(.headline)
+                    Text(dayPlan.title)
+                        .font(.body)
+                }
+                HStack {
+                    Text("開始時刻:")
+                        .font(.headline)
+                    Text(dayPlan.beginTime)
+                        .font(.body)
+                }
+                HStack {
+                    Text("終了時刻:")
+                        .font(.headline)
+                    Text(dayPlan.endTime)
+                        .font(.body)
+                }
+                
+                    Text("詳細:")
+                        .font(.headline)
+                    Text(dayPlan.description)
+                        .font(.body)
+                
             }
             .padding()
             .navigationBarTitle(dayPlan.title, displayMode: .inline)
