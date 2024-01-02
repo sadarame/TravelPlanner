@@ -7,14 +7,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "AI-Trip"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "AIトラベルプランナー"
+            "value" : "Smart!Trip"
           }
         }
       }
