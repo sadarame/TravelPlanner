@@ -159,13 +159,16 @@ struct DetailView: View {
                 HStack {
                     Text("開始時刻:")
                         .font(.headline)
-                    Text(dayPlan.beginTime)
+                    Text("\(dayPlan.formattedBeginTime() ?? "")")
+//                    "\(dayPlan.formattedBeginTime ?? "No Title")")
+//                    Text(dayPlan.formattedBeginTime ?? "")
                         .font(.body)
                 }
                 HStack {
                     Text("終了時刻:")
                         .font(.headline)
-                    Text(dayPlan.endTime)
+//                    Text(dayPlan.formattedEndTime)
+                    Text("\(dayPlan.formattedEndTime() ?? "")")
                         .font(.body)
                 }
                 

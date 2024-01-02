@@ -8,7 +8,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AITravelPlanner"
+            "value" : "AI-Trip"
           }
         },
         "ja" : {
@@ -26,7 +26,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TravelPlanner"
+            "value" : "AI-Trip"
           }
         },
         "ja" : {
@@ -41,6 +41,12 @@
       "comment" : "Privacy - Tracking Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you \"allow,\" optimized advertisements tailored to you will be displayed."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "new",

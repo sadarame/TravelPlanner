@@ -21,6 +21,33 @@ struct DayPlanModel: Codable,Hashable {
     static func createSampleDayPlan() -> DayPlanModel {
             return DayPlanModel(day: 1, beginTime: "09:00", endTime: "12:00", title: "Sample Plan", description: "Sample Description")
     }
+    
+    func formattedBeginTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+        // String型のbeginTimeをDate型に変換
+        if let date = dateFormatter.date(from: beginTime) {
+            // Date型を"HH:mm"形式の文字列に変換して返す
+            return dateFormatter.string(from: date)
+        } else {
+            // 変換に失敗した場合は空文字を返す
+            return ""
+        }
+    }
+    
+    func formattedEndTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+        // String型のbeginTimeをDate型に変換
+        guard let date = dateFormatter.date(from: endTime) else {
+            return "" // 変換に失敗した場合はnilを返す
+        }
+
+        // Date型を"HH:mm"形式の文字列に変換
+        return dateFormatter.string(from: date)
+    }
 }
 
 

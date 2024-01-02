@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "%@" : {
+
+    },
     "%lld:00" : {
 
     },
@@ -12,7 +15,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "day %lld"
+            "value" : "Day %lld"
           }
         }
       }

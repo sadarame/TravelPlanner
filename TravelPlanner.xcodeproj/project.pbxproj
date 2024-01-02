@@ -564,7 +564,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravelPlanner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "AIトラベルプランナー";
+				INFOPLIST_KEY_CFBundleDisplayName = "Smart!Trip";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "「許可」するとお客様に最適化された広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -604,7 +604,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravelPlanner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "AIトラベルプランナー";
+				INFOPLIST_KEY_CFBundleDisplayName = "Smart!Trip";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "「許可」するとお客様に最適化された広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
