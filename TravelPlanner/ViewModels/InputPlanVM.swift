@@ -84,7 +84,6 @@ class InputPlanVM: BaseVM {
         }
     }
 
-    
     func formatText(_ text: String) -> String {
         var cleanedText = text.replacingOccurrences(of: "\\n", with: "\n")
         cleanedText = cleanedText.replacingOccurrences(of: " ", with: "")
@@ -94,8 +93,6 @@ class InputPlanVM: BaseVM {
     // MARK: - GPTに送る前段処理
     func createTravelPlan(txt:String){
         model.text = txt
-        //履歴を保存
-//        saveTravelPlanHist(model)
         //リクエスト送信
         requestGpt()
     }
@@ -148,7 +145,6 @@ class InputPlanVM: BaseVM {
         return false
     }
 
-    
     // 今日何回ボタンが押されたかを返すメソッド
     func numberOfButtonPressesToday() -> Int {
         var buttonPressModel = loadButtonPressModel()
@@ -222,5 +218,40 @@ class InputPlanVM: BaseVM {
         }
     }
     
+    // MARK: 翻訳API
+    func translateText(from source: String, to target: String, originalText: String, completion: @escaping (String?, Error?) -> Void) {
+        // URLを構築する
+        let urlString = "https://script.google.com/macros/s/AKfycbyGigjqziyCyuBuDwUEHSFOUZ7CWtfBin-AB3T1GdQptOXbTKacbisfugUN5-ws14Ju/exec?text=\(originalText)&source=\(source)&target=\(target)"
+        
+        guard let url = URL(string: urlString) else {
+            completion(nil, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+            return
+        }
+        
+        // URLSessionを使用してHTTPリクエストを送信
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            // エラーチェック
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            // データチェック
+            guard let data = data else {
+                completion(nil, NSError(domain: "No data received", code: 1, userInfo: nil))
+                return
+            }
+            
+            // データを文字列に変換
+            if let translatedText = String(data: data, encoding: .utf8) {
+                completion(translatedText, nil)
+            } else {
+                completion(nil, NSError(domain: "Failed to decode data", code: 2, userInfo: nil))
+            }
+        }
+        
+        // タスクを開始
+        task.resume()
+    }
     
 }
