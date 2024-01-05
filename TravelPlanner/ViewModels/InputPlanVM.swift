@@ -103,18 +103,21 @@ class InputPlanVM: BaseVM {
             // ドキュメントIDを保存
             saveDocumentID(resModel.documentId)
             
+            //GPTからの応答をモデルに変換
+            self.durlation = self.model.travelDuration
+            GlobalCalendarVM.shared.fetchScheduleFromJson(strJson: resModel.responseMessage)
+            
             //リクエスト、レスポンスを履歴として保存
             self.model.documentID = resModel.documentId
             self.model.resText = resModel.responseMessage
+            self.model.planTitle = GlobalCalendarVM.shared.schedule.travelplanName
             saveTravelPlanHist(self.model)
             
             //応答画面用に直近のでデータ保存（微妙だからあとで見直し）
             saveGptText(resModel.responseMessage)
             GlobalViewModel.shared.isDisEditable = false
             
-            //GPTからの応答をモデルに変換
-            self.durlation = self.model.travelDuration
-            CalendarVM.shared.fetchScheduleFromJson(strJson: resModel.responseMessage)
+            
             
             //カレンダービューへ遷移
             GlobalViewModel.shared.selection = 2

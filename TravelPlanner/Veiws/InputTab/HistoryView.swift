@@ -21,9 +21,9 @@ struct HistoryView: View {
     var body: some View {
         List(vm.planHistList.reversed()) { plan in
             VStack(alignment: .leading) {
-                Text(String(plan.text.prefix(Const.textMaxLength)))
+                Text(String(plan.planTitle.prefix(Const.textMaxLength)))
                     .font(.headline)
-                Text("日時: \(formattedDate(plan.date))")
+                Text("\(plan.timeAgoSinceDate())")
                     .font(.subheadline)
 
             }

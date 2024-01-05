@@ -292,6 +292,7 @@
       }
     },
     "日時: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

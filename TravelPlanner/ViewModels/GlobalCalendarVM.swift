@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-final class CalendarVM: BaseVM {
+final class GlobalCalendarVM: BaseVM {
     
-   static let shared: CalendarVM = .init()
+   static let shared: GlobalCalendarVM = .init()
     
     //カレンダー用のモデル
     @Published var schedule:ScheduleModel = ScheduleModel.loadModelData()
@@ -101,6 +101,9 @@ final class CalendarVM: BaseVM {
         self.schedule = ScheduleModel.createFromJsonString(strJson)
     }
     
+    func getScheduleModeFromJson(strJson:String)-> ScheduleModel {
+        return ScheduleModel.createFromJsonString(strJson)
+    }
     
     
     func dayPlansForHour(_ hour: Int) -> [DayPlanModel] {

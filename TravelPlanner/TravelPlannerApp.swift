@@ -24,7 +24,7 @@ struct TravelPlannerApp: App {
                 ParentView()
                     .environmentObject(appState)
                     .environmentObject(GlobalViewModel.shared)
-                    .environmentObject(CalendarVM.shared)
+                    .environmentObject(GlobalCalendarVM.shared)
         }
     }
 }

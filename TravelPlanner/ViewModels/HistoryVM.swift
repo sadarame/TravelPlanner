@@ -22,4 +22,6 @@ class HistoryVM: BaseVM {
         planHistList = loadTravelPlanHistList() ?? []
     }
     
+    
+    
 }

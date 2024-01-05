@@ -18,12 +18,16 @@ struct SharedView: View {
     }
     
     var body: some View {
-        List(vm.data) { plan in
+        List(vm.data, id: \.id) { plan in
             VStack(alignment: .leading) {
-                Text(String(plan.input_message.prefix(Const.textMaxLength)))
+                Text(String(plan.getPlanTitle().prefix(Const.textMaxLength)))
                     .font(.headline)
-                Text("日時: \(formattedDate(plan.timestamp))")
+                Text("\(plan.timeAgoSinceDate())")
                     .font(.subheadline)
+               
+                
+              
+                    
                
             }
             .contentShape(Rectangle())

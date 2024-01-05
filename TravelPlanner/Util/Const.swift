@@ -47,7 +47,7 @@ struct Const {
     
     //制御用定数
     //履歴画面のリストの文字数制限
-    static let textMaxLength = 15
+    static let textMaxLength = 30
     //sharedから持ってくる行数
     static let fetchlimit = 30
     //旅行計画の入力制限

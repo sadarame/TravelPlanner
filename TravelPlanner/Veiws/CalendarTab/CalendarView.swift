@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     
-    @EnvironmentObject var vm: CalendarVM
+    @EnvironmentObject var vm: GlobalCalendarVM
     
     
     @State private var scroll_num = 13

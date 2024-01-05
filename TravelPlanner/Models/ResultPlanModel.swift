@@ -8,6 +8,7 @@
 import Foundation
 
 struct ScheduleModel: Codable {
+    var travelplanName:String
     var travelplan: [DayPlanModel]
 }
 
@@ -57,7 +58,7 @@ extension ScheduleModel {
         guard let jsonString = loadGptText(),
               let jsonData = jsonString.data(using: .utf8) else {
             print("Error converting JSON string to data")
-            return ScheduleModel(travelplan: [])  // デフォルト値を返すか、空の配列を持つモデルを返すなど、適切な初期値を返す
+            return ScheduleModel(travelplanName: "", travelplan: [])  // デフォルト値を返すか、空の配列を持つモデルを返すなど、適切な初期値を返す
         }
 
         let decoder = JSONDecoder()
@@ -66,14 +67,14 @@ extension ScheduleModel {
             return decodedData
         } catch {
             print("Error decoding JSON: \(error)")
-            return ScheduleModel(travelplan: [])  // デコードエラー時も適切な初期値を返す
+            return ScheduleModel(travelplanName: "", travelplan: [])  // デコードエラー時も適切な初期値を返す
         }
     }
     
     static func createFromJsonString(_ jsonString: String) -> ScheduleModel {
         guard let jsonData = jsonString.data(using: .utf8) else {
             print("Error converting JSON string to data")
-            return ScheduleModel(travelplan: [])
+            return ScheduleModel(travelplanName: "", travelplan: [])
         }
 
         let decoder = JSONDecoder()
@@ -82,7 +83,7 @@ extension ScheduleModel {
             return decodedData
         } catch {
             print("Error decoding JSON: \(error)")
-            return ScheduleModel(travelplan: [])  
+            return ScheduleModel(travelplanName: "", travelplan: [])  
         }
     }
 }

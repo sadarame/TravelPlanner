@@ -77,6 +77,4 @@ func logData(_ data: Data) {
     } else {
         print("Invalid data")
     }
-    
-
 }

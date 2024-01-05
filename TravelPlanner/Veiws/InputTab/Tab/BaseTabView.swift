@@ -14,7 +14,8 @@ struct BaseTabView: View {
     @State private var selectedTab: Int = 0
     @ObservedObject var vm:BaseVM = BaseVM()
     
-    let list: [String] = [Const.label_tab_input, Const.label_tab_hist, Const.label_tab_reponse, Const.label_tab_othersPlan]
+//    let list: [String] = [Const.label_tab_input, Const.label_tab_hist, Const.label_tab_reponse, Const.label_tab_othersPlan]
+    let list: [String] = [Const.label_tab_input, Const.label_tab_hist, Const.label_tab_othersPlan]
 
     var body: some View {
         
@@ -36,11 +37,11 @@ struct BaseTabView: View {
                 HistoryView(selectedTab: $selectedTab)
                     .tag(1)
                 //応答結果画面（GPTの結果を返す画面）
-                ResponseView(selectedTab: $selectedTab)
-                    .tag(2)
+//                ResponseView(selectedTab: $selectedTab)
+//                    .tag(2)
                 //共有画面（他の入力した旅行の計画をみれる画面）
                 SharedView(selectedTab: $selectedTab)
-                    .tag(3)
+                    .tag(2)
             })
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }

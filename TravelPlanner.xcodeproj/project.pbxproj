@@ -45,7 +45,7 @@
 		16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */; };
 		16A2CEAC2B204DC400917917 /* gptResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A2CEAB2B204DC300917917 /* gptResponseModel.swift */; };
 		16E6B53D2B2D446A008A2A51 /* ResultPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E6B53C2B2D446A008A2A51 /* ResultPlanModel.swift */; };
-		16E6B5412B2D490F008A2A51 /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E6B5402B2D490F008A2A51 /* CalendarVM.swift */; };
+		16E6B5412B2D490F008A2A51 /* GlobalCalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E6B5402B2D490F008A2A51 /* GlobalCalendarVM.swift */; };
 		8AE6FADA0D6F8FB23B288FC5 /* Pods_TravelPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB22441D2416D8F3BDA47F1 /* Pods_TravelPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +91,7 @@
 		16A2CEA92B1EE7B700917917 /* TravelPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlanModel.swift; sourceTree = "<group>"; };
 		16A2CEAB2B204DC300917917 /* gptResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gptResponseModel.swift; sourceTree = "<group>"; };
 		16E6B53C2B2D446A008A2A51 /* ResultPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPlanModel.swift; sourceTree = "<group>"; };
-		16E6B5402B2D490F008A2A51 /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
+		16E6B5402B2D490F008A2A51 /* GlobalCalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCalendarVM.swift; sourceTree = "<group>"; };
 		4380DAF47D7F0AB2F6CEA23A /* Pods-TravelPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelPlanner.release.xcconfig"; path = "Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		49F85A30B621C0EF67535E62 /* Pods-TravelPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelPlanner.debug.xcconfig"; path = "Target Support Files/Pods-TravelPlanner/Pods-TravelPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		5DB22441D2416D8F3BDA47F1 /* Pods_TravelPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,7 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				16A1CAA32B2550EA0054BA39 /* GlobalViewModel.swift */,
-				16E6B5402B2D490F008A2A51 /* CalendarVM.swift */,
+				16E6B5402B2D490F008A2A51 /* GlobalCalendarVM.swift */,
 				1674C8D42B28B34C00C53EE1 /* SharedVM.swift */,
 				16A2CE9E2B1EE30B00917917 /* InputPlanVM.swift */,
 				16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */,
@@ -395,7 +395,7 @@
 				16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */,
 				1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */,
 				16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */,
-				16E6B5412B2D490F008A2A51 /* CalendarVM.swift in Sources */,
+				16E6B5412B2D490F008A2A51 /* GlobalCalendarVM.swift in Sources */,
 				16A2CEA82B1EE5C300917917 /* UserDefaultManager.swift in Sources */,
 				16A2CE9F2B1EE30B00917917 /* InputPlanVM.swift in Sources */,
 				16A2CE902B1EB40A00917917 /* ScheduleModel.swift in Sources */,
