@@ -24,6 +24,9 @@ final class GlobalViewModel: ObservableObject {
     
     //プログレスエフェクト表示制御
     @Published var isShowProgres = false
+    //利用規約表示
+    @AppStorage("isShowTermOfService") var isShowTermOfService = true
+    
     //エラーメッセージ制御
     @Published var isShowingMessage: Bool = false
     @Published var userMessage: String = ""

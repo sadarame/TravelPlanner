@@ -20,6 +20,7 @@
 		1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */; };
 		1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D42B28B34C00C53EE1 /* SharedVM.swift */; };
 		1674C8D72B28B64E00C53EE1 /* SharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D62B28B64E00C53EE1 /* SharedModel.swift */; };
+		168F07232B512F2500ED24A3 /* AgreementPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07222B512F2500ED24A3 /* AgreementPopupView.swift */; };
 		16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA582B216D150054BA39 /* CommonModifier.swift */; };
 		16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */; };
 		16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */; };
@@ -65,6 +66,7 @@
 		1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPressModel.swift; sourceTree = "<group>"; };
 		1674C8D42B28B34C00C53EE1 /* SharedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVM.swift; sourceTree = "<group>"; };
 		1674C8D62B28B64E00C53EE1 /* SharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModel.swift; sourceTree = "<group>"; };
+		168F07222B512F2500ED24A3 /* AgreementPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPopupView.swift; sourceTree = "<group>"; };
 		16A1CA582B216D150054BA39 /* CommonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifier.swift; sourceTree = "<group>"; };
 		16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
 		16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseVM.swift; sourceTree = "<group>"; };
@@ -164,20 +166,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		162FCEE52B31A09C004A5B86 /* AddMob */ = {
+		162FCEE52B31A09C004A5B86 /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
 				162FCEE62B31A0C0004A5B86 /* AdMobBannerView.swift */,
 				162FCEEA2B32BB35004A5B86 /* Reward.swift */,
 				162FCEE82B31A94C004A5B86 /* AdMobInterstitialView.swift */,
 			);
-			path = AddMob;
+			path = AdMob;
 			sourceTree = "<group>";
 		};
 		16A1CA572B216CFE0054BA39 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				16A1CA582B216D150054BA39 /* CommonModifier.swift */,
+				168F07222B512F2500ED24A3 /* AgreementPopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -195,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				16A2CE862B1D929600917917 /* ParentView.swift */,
-				162FCEE52B31A09C004A5B86 /* AddMob */,
+				162FCEE52B31A09C004A5B86 /* AdMob */,
 				16A1CA572B216CFE0054BA39 /* Common */,
 				16A2CE952B1EB94600917917 /* InputTab */,
 				16A2CE912B1EB5B900917917 /* CalendarTab */,
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168F07232B512F2500ED24A3 /* AgreementPopupView.swift in Sources */,
 				16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */,
 				1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */,
 				16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */,

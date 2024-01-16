@@ -109,6 +109,7 @@ class InputPlanVM: BaseVM {
             
             //リクエスト、レスポンスを履歴として保存
             self.model.documentID = resModel.documentId
+            self.model.sharedID = resModel.sharedId
             self.model.resText = resModel.responseMessage
             self.model.planTitle = GlobalCalendarVM.shared.schedule.travelplanName
             saveTravelPlanHist(self.model)
@@ -116,8 +117,6 @@ class InputPlanVM: BaseVM {
             //応答画面用に直近のでデータ保存（微妙だからあとで見直し）
             saveGptText(resModel.responseMessage)
             GlobalViewModel.shared.isDisEditable = false
-            
-            
             
             //カレンダービューへ遷移
             GlobalViewModel.shared.selection = 2

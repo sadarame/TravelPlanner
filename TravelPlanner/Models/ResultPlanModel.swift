@@ -29,7 +29,8 @@ struct DayPlanModel: Codable,Hashable {
 
         // String型のbeginTimeをDate型に変換
         if let date = dateFormatter.date(from: beginTime) {
-            // Date型を"HH:mm"形式の文字列に変換して返す
+            // 新しいdateFormatを設定して、HH:mm形式の文字列に変換して返す
+            dateFormatter.dateFormat = "HH:mm"
             return dateFormatter.string(from: date)
         } else {
             // 変換に失敗した場合は空文字を返す
@@ -42,12 +43,14 @@ struct DayPlanModel: Codable,Hashable {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
         // String型のbeginTimeをDate型に変換
-        guard let date = dateFormatter.date(from: endTime) else {
-            return "" // 変換に失敗した場合はnilを返す
+        if let date = dateFormatter.date(from: endTime) {
+            // 新しいdateFormatを設定して、HH:mm形式の文字列に変換して返す
+            dateFormatter.dateFormat = "HH:mm"
+            return dateFormatter.string(from: date)
+        } else {
+            // 変換に失敗した場合は空文字を返す
+            return ""
         }
-
-        // Date型を"HH:mm"形式の文字列に変換
-        return dateFormatter.string(from: date)
     }
 }
 

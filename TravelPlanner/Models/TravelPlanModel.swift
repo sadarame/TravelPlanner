@@ -14,6 +14,7 @@ class TravelPlanModel: Identifiable, Codable {
     var resText:String
     var date: Date
     var documentID:String
+    var sharedID:String
     var travelDuration:Int
 
     // 引数なしのイニシャライザ
@@ -24,16 +25,18 @@ class TravelPlanModel: Identifiable, Codable {
         self.resText  = ""
         self.date = Date()
         self.documentID = loadDocumentID() ?? ""
+        self.sharedID = ""
         self.travelDuration = 1
     }
 
-    init(id: UUID = UUID(), planTitle:String,text: String, resText: String, date: Date,documentID:String,travelDuration:Int) {
+    init(id: UUID = UUID(), planTitle:String,text: String, resText: String, date: Date,documentID:String,sharedID:String,travelDuration:Int) {
         self.id = id
         self.planTitle = planTitle
         self.text = text
         self.resText  = resText
         self.date = date
         self.documentID = documentID
+        self.sharedID = sharedID
         self.travelDuration = travelDuration
     }
     

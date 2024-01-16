@@ -120,12 +120,32 @@
         }
       }
     },
+    "プライバシーポリシ" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
     "みんな旅行計画" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Others Plan"
+          }
+        }
+      }
+    },
+    "ユーザーブロック" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block User"
           }
         }
       }
@@ -190,6 +210,39 @@
         }
       }
     },
+    "利用規約" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "terms of service"
+          }
+        }
+      }
+    },
+    "利用規約に同意する" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agree"
+          }
+        }
+      }
+    },
+    "削除" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "同意する" : {
+
+    },
     "型変換処理でエラーが発生しました。" : {
       "localizations" : {
         "en" : {
@@ -249,6 +302,9 @@
           }
         }
       }
+    },
+    "当アプリ・サービスでは、プライバシーポリシー（個人情報保護方針）及び\nユーザー規約に則って個人情報や利用データ等を取り扱います。\n下記をご確認の上、同意いただける場合には「同意する」をタップしてお進みください。" : {
+
     },
     "応答" : {
       "localizations" : {
@@ -341,6 +397,9 @@
           }
         }
       }
+    },
+    "通報" : {
+
     },
     "閉じる" : {
       "localizations" : {

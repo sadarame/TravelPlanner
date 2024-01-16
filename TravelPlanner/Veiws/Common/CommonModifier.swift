@@ -26,6 +26,13 @@ struct CommonModifier: ViewModifier {
                     .edgesIgnoringSafeArea(.all)
             }
             
+            //利用規約の表示
+            if gvm.isShowTermOfService {
+                Color.gray.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                AgreementPopupView(isPresent: $gvm.isShowTermOfService)
+            }
+                
         }
 
         .alert(isPresented: $gvm.isShowMessage) {

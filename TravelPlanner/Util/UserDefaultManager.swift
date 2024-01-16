@@ -37,6 +37,15 @@ func saveTravelPlanHist(_ model: TravelPlanModel) {
     }
 }
 
+func saveTravelPlanHistList(_ list: [TravelPlanModel]) {
+    do {
+        let data = try JSONEncoder().encode(list)
+        UserDefaults.standard.set(data, forKey: "TravelPlanHist")
+    } catch {
+        print("Failed to save TravelPlanHistList: \(error)")
+    }
+}
+
 
 func loadTravelPlanHistList() -> [TravelPlanModel]? {
     if let data = UserDefaults.standard.data(forKey: "TravelPlanHist") {
@@ -106,3 +115,13 @@ func loadButtonPressModel() -> ButtonPressModel {
     }
     return ButtonPressModel()
 }
+
+
+func saveBlockingUser(_ useridList: [String]) {
+    UserDefaults.standard.set(useridList, forKey: "BlockingUser")
+}
+
+func loadBlockingUser() -> [String] {
+    return UserDefaults.standard.stringArray(forKey: "BlockingUser") ?? [String]()
+}
+

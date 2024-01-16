@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HistoryView: View {
     
-    @ObservedObject var vm:HistoryVM
+    @ObservedObject var vm: HistoryVM
     @Binding var selectedTab: Int
-    @EnvironmentObject var appState:AppState
+    @EnvironmentObject var appState: AppState
     
     init(selectedTab: Binding<Int>) {
         self._selectedTab = selectedTab
@@ -19,27 +19,36 @@ struct HistoryView: View {
     }
     
     var body: some View {
-        List(vm.planHistList.reversed()) { plan in
-            VStack(alignment: .leading) {
-                Text(String(plan.planTitle.prefix(Const.textMaxLength)))
-                    .font(.headline)
-                Text("\(plan.timeAgoSinceDate())")
-                    .font(.subheadline)
-
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                // リストアイテムがタップされたときの処理
-                appState.txt = plan.text
-                selectedTab = 0
+        List {
+            ForEach(vm.planHistList.reversed()) { plan in
+                VStack(alignment: .leading) {
+                    Text(String(plan.planTitle.prefix(Const.textMaxLength)))
+                        .font(.headline)
+                    Text("\(plan.timeAgoSinceDate())")
+                        .font(.subheadline)
+                }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    // リストアイテムがタップされたときの処理
+                    appState.txt = plan.text
+                    selectedTab = 0
+                }
+                .contextMenu {
+                    Button(action: {
+                        // リストアイテムが削除されたときの処理
+                        if let index = vm.planHistList.firstIndex(where: { $0.id == plan.id }) {
+                             vm.deletePlan(at: index)
+                         }
+//
+                    }) {
+                        Text("削除")
+                        Image(systemName: "trash")
+                    }
+                }
             }
         }
-    }
-
-    //日付
-    private func formattedDate(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        return dateFormatter.string(from: date)
+        .listStyle(.plain)
     }
 }
+
+
