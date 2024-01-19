@@ -36,11 +36,8 @@ struct Const {
     static let msg_error_limit  = String(localized:"一日の上限数を超えました")
     static let msg_loading  = String(localized:"Loading...\n30秒ほどかかります")
     static let msg_placeholder  = String(localized:"こちらに旅行の計画を入力してください")
-    
-    static let msg_block  = String(localized:"ユーザーブロック")
-    static let msg_report = String(localized:"通報")
-    
-    
+    static let msg_notice_report = String(localized:"通報が完了しました。")
+    static let msg_notice_block = String(localized:"ブロックが完了しました。")
     
     
     //利用規約
@@ -61,6 +58,15 @@ struct Const {
     static let label_fmt_2 = String(localized:"定型②")
     static let label_fmt_3 = String(localized:"定型③")
     static let label_fmt_4 = String(localized:"定型④")
+    static let label_block  = String(localized:"ユーザーブロック")
+    static let label_report = String(localized:"通報")
+    
+    
+    
+    static let label_setting = String(localized:"設定")
+    static let label_inquiry = String(localized:"問い合わせ")
+    static let mail_subujection = String(localized:"【問い合わせ】Smart!Trip")
+
     
     
     //制御用定数

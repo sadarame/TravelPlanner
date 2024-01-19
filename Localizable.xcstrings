@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "︙" : {
+
+    },
     "%@" : {
 
     },
@@ -70,6 +73,16 @@
         }
       }
     },
+    "エラー" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ERROR"
+          }
+        }
+      }
+    },
     "エラーが発生しました" : {
       "localizations" : {
         "en" : {
@@ -126,6 +139,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "ブロックが完了しました。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block Complete"
+          }
+        }
+      }
+    },
+    "ブロック管理" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block Complete"
           }
         }
       }
@@ -200,6 +233,16 @@
         }
       }
     },
+    "予期せぬエラーが発生しました。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected error has occurred."
+          }
+        }
+      }
+    },
     "入力" : {
       "localizations" : {
         "en" : {
@@ -241,7 +284,24 @@
       }
     },
     "同意する" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agree"
+          }
+        }
+      }
+    },
+    "問い合わせ" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "inquiry"
+          }
+        }
+      }
     },
     "型変換処理でエラーが発生しました。" : {
       "localizations" : {
@@ -304,7 +364,14 @@
       }
     },
     "当アプリ・サービスでは、プライバシーポリシー（個人情報保護方針）及び\nユーザー規約に則って個人情報や利用データ等を取り扱います。\n下記をご確認の上、同意いただける場合には「同意する」をタップしてお進みください。" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app/service has a privacy policy (personal information protection policy) and\nPersonal information and usage data are handled in accordance with user regulations.\nPlease check the following and tap \"Agree\" if possible."
+          }
+        }
+      }
     },
     "応答" : {
       "localizations" : {
@@ -368,12 +435,25 @@
         }
       }
     },
+    "管理" : {
+
+    },
     "終了時刻:" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "End:"
+          }
+        }
+      }
+    },
+    "設定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setting"
           }
         }
       }
@@ -399,7 +479,24 @@
       }
     },
     "通報" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report"
+          }
+        }
+      }
+    },
+    "通報が完了しました。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Completed"
+          }
+        }
+      }
     },
     "閉じる" : {
       "localizations" : {

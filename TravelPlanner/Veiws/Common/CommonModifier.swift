@@ -34,27 +34,51 @@ struct CommonModifier: ViewModifier {
             }
                 
         }
+        .alert(isPresented: Binding<Bool>.constant($gvm.isShowMessage.wrappedValue || $gvm.isShowAdReward.wrappedValue)) {
+            if gvm.isShowMessage {
+                return Alert(
+                    title: Text("お知らせ"),
+                    message: Text(gvm.message),
+                    dismissButton: .default(Text("OK"))
+                )
+            } else if gvm.isShowAdReward {
+                return Alert(
+                    title: Text("上限超過"),
+                    message: Text("リワード広告を見て、回数を増やしますか？"),
+                    primaryButton: .default(Text("OK"), action: {
+                        // 広告を表示する
+                        gvm.reward.ShowReward()
+                    }),
+                    secondaryButton: .cancel()
+                )
+            }
 
-        .alert(isPresented: $gvm.isShowMessage) {
-            Alert(
-                title: Text("お知らせ"),
-                message: Text(gvm.message),
-                dismissButton: .default(Text("OK"))
-            )
+            // ここにデフォルトのAlertを返すか、エラー処理を追加するなど必要に応じて対応してください
+            return Alert(title: Text("エラー"), message: Text("予期せぬエラーが発生しました。"), dismissButton: .default(Text("OK")))
         }
+
+
+//        .alert(isPresented: $gvm.isShowMessage) {
+//            Alert(
+//                title: Text("お知らせ"),
+//                message: Text(gvm.message),
+//                dismissButton: .default(Text("OK"))
+//            )
+//        }
         //リワード広告用のアラート
-        .alert(isPresented: $gvm.isShowAdReward) {
-            Alert(
-                title: Text("上限超過"),
-                message: Text("リワード広告を見て、回数を増やしますか？"),
-                primaryButton: .default(Text("OK"), action: {
-                    // 広告を表示する
-                    gvm.reward.ShowReward()
-                   
-                }),
-                secondaryButton: .cancel()
-            )
-        }
+//        .alert(isPresented: $gvm.isShowAdReward) {
+//            
+//            Alert(
+//                title: Text("上限超過"),
+//                message: Text("リワード広告を見て、回数を増やしますか？"),
+//                primaryButton: .default(Text("OK"), action: {
+//                    // 広告を表示する
+//                    gvm.reward.ShowReward()
+//                   
+//                }),
+//                secondaryButton: .cancel()
+//            )
+//        }
 
     }
 }

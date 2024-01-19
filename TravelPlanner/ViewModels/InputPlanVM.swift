@@ -30,9 +30,7 @@ class InputPlanVM: BaseVM {
         self._selectedTab = selectedTab
     }
     
-    func onloadView(){
-       
-    }
+    
     
     func localizingFormatStr(type: Int) -> String {
         let currentLocale = Locale.current

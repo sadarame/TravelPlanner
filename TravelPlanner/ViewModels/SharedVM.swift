@@ -13,12 +13,12 @@ class SharedVM: BaseVM {
     
     @Binding var selectedTab: Int
     @Published var data:[SharedModel] = []
+    @Published var alertflg = false
     
     init(selectedTab: Binding<Int>) {
         
         self._selectedTab = selectedTab
         super.init()
-        
         self.fetchShared()
     }
     
@@ -50,7 +50,7 @@ class SharedVM: BaseVM {
 
                     // データを日付順にソート
                     self.data.sort(by: { $0.timestamp > $1.timestamp })
-                    print("ソート完了")
+                   
                 } catch let error {
                     print("Error decoding data: \(error.localizedDescription)")
                 }
@@ -58,13 +58,14 @@ class SharedVM: BaseVM {
         }
     }
 
-
-    
     func blockingUser(blockID:String) {
         //ブロックユーザを追加
         var blockingUsers = loadBlockingUser()
         blockingUsers.append(blockID)
         saveBlockingUser(blockingUsers)
+        
+        //通報完了のメッセージ
+        GlobalViewModel.shared.setAlertMessage(message: Const.msg_notice_block)
     }
     
    
@@ -81,6 +82,11 @@ class SharedVM: BaseVM {
                     print("Document added with ID: \(ref!.documentID)")
                 }
             }
+         
+            //通報完了のメッセージ
+            GlobalViewModel.shared.setAlertMessage(message: Const.msg_notice_report)
+            
+            
         } catch {
             print("Error encoding SharedModel: \(error)")
         }

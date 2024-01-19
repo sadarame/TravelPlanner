@@ -21,6 +21,8 @@
 		1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D42B28B34C00C53EE1 /* SharedVM.swift */; };
 		1674C8D72B28B64E00C53EE1 /* SharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D62B28B64E00C53EE1 /* SharedModel.swift */; };
 		168F07232B512F2500ED24A3 /* AgreementPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07222B512F2500ED24A3 /* AgreementPopupView.swift */; };
+		168F07262B5A58B000ED24A3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07252B5A58B000ED24A3 /* SettingView.swift */; };
+		168F07282B5A681D00ED24A3 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07272B5A681D00ED24A3 /* MailView.swift */; };
 		16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA582B216D150054BA39 /* CommonModifier.swift */; };
 		16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */; };
 		16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */; };
@@ -67,6 +69,8 @@
 		1674C8D42B28B34C00C53EE1 /* SharedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVM.swift; sourceTree = "<group>"; };
 		1674C8D62B28B64E00C53EE1 /* SharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModel.swift; sourceTree = "<group>"; };
 		168F07222B512F2500ED24A3 /* AgreementPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPopupView.swift; sourceTree = "<group>"; };
+		168F07252B5A58B000ED24A3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		168F07272B5A681D00ED24A3 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		16A1CA582B216D150054BA39 /* CommonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifier.swift; sourceTree = "<group>"; };
 		16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
 		16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseVM.swift; sourceTree = "<group>"; };
@@ -176,6 +180,15 @@
 			path = AdMob;
 			sourceTree = "<group>";
 		};
+		168F07242B5A56EA00ED24A3 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				168F07252B5A58B000ED24A3 /* SettingView.swift */,
+				168F07272B5A681D00ED24A3 /* MailView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		16A1CA572B216CFE0054BA39 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,19 +198,22 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		16A1CA602B21A0D80054BA39 /* Tab */ = {
+		16A1CA602B21A0D80054BA39 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				16A2CE882B1D978D00917917 /* BaseTabView.swift */,
-				16A2CE8A2B1D987A00917917 /* TopTabView.swift */,
+				16A2CE8C2B1D9C5F00917917 /* InputPlanView.swift */,
+				16A2CE982B1EB99D00917917 /* HistoryView.swift */,
+				16A2CE9A2B1EB9CB00917917 /* ResponseView.swift */,
+				16A2CE9C2B1EBB2900917917 /* SharedView.swift */,
 			);
-			path = Tab;
+			path = Content;
 			sourceTree = "<group>";
 		};
 		16A2CE802B0DEBF000917917 /* Veiws */ = {
 			isa = PBXGroup;
 			children = (
 				16A2CE862B1D929600917917 /* ParentView.swift */,
+				168F07242B5A56EA00ED24A3 /* Setting */,
 				162FCEE52B31A09C004A5B86 /* AdMob */,
 				16A1CA572B216CFE0054BA39 /* Common */,
 				16A2CE952B1EB94600917917 /* InputTab */,
@@ -247,11 +263,9 @@
 		16A2CE952B1EB94600917917 /* InputTab */ = {
 			isa = PBXGroup;
 			children = (
-				16A1CA602B21A0D80054BA39 /* Tab */,
-				16A2CE8C2B1D9C5F00917917 /* InputPlanView.swift */,
-				16A2CE982B1EB99D00917917 /* HistoryView.swift */,
-				16A2CE9A2B1EB9CB00917917 /* ResponseView.swift */,
-				16A2CE9C2B1EBB2900917917 /* SharedView.swift */,
+				16A2CE882B1D978D00917917 /* BaseTabView.swift */,
+				16A2CE8A2B1D987A00917917 /* TopTabView.swift */,
+				16A1CA602B21A0D80054BA39 /* Content */,
 			);
 			path = InputTab;
 			sourceTree = "<group>";
@@ -396,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				168F07232B512F2500ED24A3 /* AgreementPopupView.swift in Sources */,
+				168F07282B5A681D00ED24A3 /* MailView.swift in Sources */,
 				16A2CE8D2B1D9C5F00917917 /* InputPlanView.swift in Sources */,
 				1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */,
 				16A1CA592B216D150054BA39 /* CommonModifier.swift in Sources */,
@@ -404,6 +419,7 @@
 				16A2CE9F2B1EE30B00917917 /* InputPlanVM.swift in Sources */,
 				16A2CE902B1EB40A00917917 /* ScheduleModel.swift in Sources */,
 				162FCEE42B3029BC004A5B86 /* CalendarView.swift in Sources */,
+				168F07262B5A58B000ED24A3 /* SettingView.swift in Sources */,
 				16A2CEAC2B204DC400917917 /* gptResponseModel.swift in Sources */,
 				16A2CE9D2B1EBB2900917917 /* SharedView.swift in Sources */,
 				16A1CA622B21B0550054BA39 /* Enum.swift in Sources */,
