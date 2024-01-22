@@ -9,6 +9,9 @@ import FirebaseFirestore
 
 final class GlobalViewModel: ObservableObject {
     static let shared: GlobalViewModel = .init() // シングルトンクラスへ
+    
+    //通報対象
+    @Published var reportID:String = ""
 
     //ユーザメッセージ通知フラグ
     @Published var isShowMessage:Bool = false

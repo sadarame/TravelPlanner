@@ -39,6 +39,8 @@ struct Const {
     static let msg_notice_report = String(localized:"通報が完了しました。")
     static let msg_notice_block = String(localized:"ブロックが完了しました。")
     
+    static let msg_placeholder_report  = String(localized:"通報内容を入力してください")
+    
     
     //利用規約
     static let MSG_USER_AGREEMENT_TITLE = String(localized: "利用規約")
@@ -60,13 +62,23 @@ struct Const {
     static let label_fmt_4 = String(localized:"定型④")
     static let label_block  = String(localized:"ユーザーブロック")
     static let label_report = String(localized:"通報")
-    
-    
-    
     static let label_setting = String(localized:"設定")
     static let label_inquiry = String(localized:"問い合わせ")
     static let mail_subujection = String(localized:"【問い合わせ】Smart!Trip")
-
+    
+    //通報フォーム
+    static let label_report_contact = String(localized:"連絡先入力")
+    static let label_report_contact_placeholder = String(localized:"任意")
+    static let label_report_button = String(localized:"通報する")
+    static let label_report_alert_title = String(localized:"通報")
+    static let label_report_alert_message = String(localized:"通報内容を入力してください")
+    static let label_report_completed = String(localized:"通報が送信されました。ありがとうございました。")
+    static let label_report_posted = String(localized:"ID:")
+    
+    static let label_report_navigation = String(localized:"通報フォーム")
+    static let label_report_close_button = String(localized:"閉じる")
+    
+    static let label_report_desp  = String(localized:"通報詳細")
     
     
     //制御用定数

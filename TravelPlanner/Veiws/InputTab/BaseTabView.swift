@@ -16,6 +16,8 @@ struct BaseTabView: View {
     
 //    let list: [String] = [Const.label_tab_input, Const.label_tab_hist, Const.label_tab_reponse, Const.label_tab_othersPlan]
     let list: [String] = [Const.label_tab_input, Const.label_tab_hist, Const.label_tab_othersPlan]
+    
+//    let list: [String] = [Const.label_tab_input, Const.label_tab_hist]
 
     var body: some View {
         

@@ -11,6 +11,11 @@ struct SharedView: View {
     @ObservedObject var vm:SharedVM
     @Binding var selectedTab: Int
     @EnvironmentObject var appState:AppState
+    @EnvironmentObject var gvm: GlobalViewModel
+    
+    
+    //通報view制御フラグ
+    @State private var isReportFormPresented = false
     
     init(selectedTab: Binding<Int>) {
         self._selectedTab = selectedTab
@@ -43,7 +48,10 @@ struct SharedView: View {
                     }
                     //通報イベント
                     Button(action: {
-                        vm.reportUser(sharedModel: plan)
+//                        vm.reportUser(sharedModel: plan)
+                        
+                        gvm.reportID = plan.user_id
+                        isReportFormPresented = true
                     }) {
                         Text(Const.label_report)
                         Image(systemName: "exclamationmark.bubble")
@@ -62,6 +70,10 @@ struct SharedView: View {
         .refreshable(action: vm.fetchShared)
         .onAppear(perform: vm.fetchShared)
         .listStyle(.plain)
+        .sheet(isPresented: $isReportFormPresented) {
+            //通報フォーム
+            ReportFormView(isPresented: $isReportFormPresented)
+        }
     }
     
     //日付

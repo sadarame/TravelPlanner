@@ -7,8 +7,28 @@
     "︙" : {
 
     },
+    "【問い合わせ】Smart!Trip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Inquiry] Smart!Trip"
+          }
+        }
+      }
+    },
     "%@" : {
 
+    },
+    "%@%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@%2$@"
+          }
+        }
+      }
     },
     "%lld:00" : {
 
@@ -52,6 +72,9 @@
           }
         }
       }
+    },
+    "ID" : {
+
     },
     "Loading...\n30秒ほどかかります" : {
       "localizations" : {
@@ -154,6 +177,7 @@
       }
     },
     "ブロック管理" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -239,6 +263,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An unexpected error has occurred."
+          }
+        }
+      }
+    },
+    "任意" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nOptional input"
           }
         }
       }
@@ -435,9 +469,6 @@
         }
       }
     },
-    "管理" : {
-
-    },
     "終了時刻:" : {
       "localizations" : {
         "en" : {
@@ -494,6 +525,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Report Completed"
+          }
+        }
+      }
+    },
+    "通報が送信されました。ありがとうございました。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A report has been sent. thank you very much."
+          }
+        }
+      }
+    },
+    "通報する" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "report"
+          }
+        }
+      }
+    },
+    "通報フォーム" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "reportForm"
+          }
+        }
+      }
+    },
+    "通報内容を入力してください" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter the details of the report"
+          }
+        }
+      }
+    },
+    "通報詳細" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report details"
+          }
+        }
+      }
+    },
+    "連絡先入力" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact information input"
           }
         }
       }

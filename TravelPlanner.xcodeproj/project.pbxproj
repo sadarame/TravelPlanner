@@ -20,6 +20,9 @@
 		1674C8D32B281CF300C53EE1 /* ButtonPressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */; };
 		1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D42B28B34C00C53EE1 /* SharedVM.swift */; };
 		1674C8D72B28B64E00C53EE1 /* SharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C8D62B28B64E00C53EE1 /* SharedModel.swift */; };
+		167E45BE2B5DEDEE00AC71DE /* ReportFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45BD2B5DEDEE00AC71DE /* ReportFormView.swift */; };
+		167E45C02B5E350500AC71DE /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45BF2B5E350500AC71DE /* ReportModel.swift */; };
+		167E45C22B5E360300AC71DE /* ReportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45C12B5E360300AC71DE /* ReportVM.swift */; };
 		168F07232B512F2500ED24A3 /* AgreementPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07222B512F2500ED24A3 /* AgreementPopupView.swift */; };
 		168F07262B5A58B000ED24A3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07252B5A58B000ED24A3 /* SettingView.swift */; };
 		168F07282B5A681D00ED24A3 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07272B5A681D00ED24A3 /* MailView.swift */; };
@@ -68,6 +71,9 @@
 		1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPressModel.swift; sourceTree = "<group>"; };
 		1674C8D42B28B34C00C53EE1 /* SharedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVM.swift; sourceTree = "<group>"; };
 		1674C8D62B28B64E00C53EE1 /* SharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModel.swift; sourceTree = "<group>"; };
+		167E45BD2B5DEDEE00AC71DE /* ReportFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFormView.swift; sourceTree = "<group>"; };
+		167E45BF2B5E350500AC71DE /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		167E45C12B5E360300AC71DE /* ReportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVM.swift; sourceTree = "<group>"; };
 		168F07222B512F2500ED24A3 /* AgreementPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPopupView.swift; sourceTree = "<group>"; };
 		168F07252B5A58B000ED24A3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		168F07272B5A681D00ED24A3 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 				16A2CE982B1EB99D00917917 /* HistoryView.swift */,
 				16A2CE9A2B1EB9CB00917917 /* ResponseView.swift */,
 				16A2CE9C2B1EBB2900917917 /* SharedView.swift */,
+				167E45BD2B5DEDEE00AC71DE /* ReportFormView.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -234,6 +241,7 @@
 				1674C8CE2B25D6FB00C53EE1 /* MessageModel.swift */,
 				1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */,
 				1674C8D62B28B64E00C53EE1 /* SharedModel.swift */,
+				167E45BF2B5E350500AC71DE /* ReportModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 				16A1CA5A2B21835A0054BA39 /* HistoryVM.swift */,
 				16A1CA5C2B2185AC0054BA39 /* ResponseVM.swift */,
 				16A2CEA02B1EE33C00917917 /* BaseVM.swift */,
+				167E45C12B5E360300AC71DE /* ReportVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -423,6 +432,7 @@
 				16A2CEAC2B204DC400917917 /* gptResponseModel.swift in Sources */,
 				16A2CE9D2B1EBB2900917917 /* SharedView.swift in Sources */,
 				16A1CA622B21B0550054BA39 /* Enum.swift in Sources */,
+				167E45BE2B5DEDEE00AC71DE /* ReportFormView.swift in Sources */,
 				16A1CAA22B2492B50054BA39 /* MstModel.swift in Sources */,
 				162FCEEB2B32BB35004A5B86 /* Reward.swift in Sources */,
 				16A2CE8B2B1D987A00917917 /* TopTabView.swift in Sources */,
@@ -430,6 +440,7 @@
 				162FCEE72B31A0C0004A5B86 /* AdMobBannerView.swift in Sources */,
 				1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */,
 				16A2CE872B1D929600917917 /* ParentView.swift in Sources */,
+				167E45C22B5E360300AC71DE /* ReportVM.swift in Sources */,
 				16A2CEA12B1EE33C00917917 /* BaseVM.swift in Sources */,
 				16A1CAA42B2550EA0054BA39 /* GlobalViewModel.swift in Sources */,
 				16A1CA5B2B21835A0054BA39 /* HistoryVM.swift in Sources */,
@@ -437,6 +448,7 @@
 				16A2CE9B2B1EB9CB00917917 /* ResponseView.swift in Sources */,
 				16A2CE892B1D978D00917917 /* BaseTabView.swift in Sources */,
 				16E6B53D2B2D446A008A2A51 /* ResultPlanModel.swift in Sources */,
+				167E45C02B5E350500AC71DE /* ReportModel.swift in Sources */,
 				16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */,
 				161D78532B0DCF5300C17982 /* TravelPlannerApp.swift in Sources */,
 				16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */,
