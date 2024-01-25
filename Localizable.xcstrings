@@ -73,7 +73,7 @@
         }
       }
     },
-    "ID" : {
+    "ID:" : {
 
     },
     "Loading...\n30秒ほどかかります" : {
@@ -198,6 +198,7 @@
       }
     },
     "ユーザーブロック" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -243,6 +244,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exceeded limit."
+          }
+        }
+      }
+    },
+    "不適切な利用が確認されたため、本アプリは使用いただけません。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app cannot be used because inappropriate use has been confirmed."
           }
         }
       }
@@ -417,6 +428,16 @@
         }
       }
     },
+    "投稿者非表示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "block poster"
+          }
+        }
+      }
+    },
     "文字数: %@/%lld" : {
       "localizations" : {
         "en" : {
@@ -433,6 +454,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select days."
+          }
+        }
+      }
+    },
+    "旅行計画を入力してください。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter your travel plans."
           }
         }
       }

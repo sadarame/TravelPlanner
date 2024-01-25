@@ -23,6 +23,8 @@
 		167E45BE2B5DEDEE00AC71DE /* ReportFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45BD2B5DEDEE00AC71DE /* ReportFormView.swift */; };
 		167E45C02B5E350500AC71DE /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45BF2B5E350500AC71DE /* ReportModel.swift */; };
 		167E45C22B5E360300AC71DE /* ReportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45C12B5E360300AC71DE /* ReportVM.swift */; };
+		167E45C42B60F9ED00AC71DE /* BlockUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45C32B60F9ED00AC71DE /* BlockUserModel.swift */; };
+		167E45C62B61063E00AC71DE /* BanPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E45C52B61063E00AC71DE /* BanPopupView.swift */; };
 		168F07232B512F2500ED24A3 /* AgreementPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07222B512F2500ED24A3 /* AgreementPopupView.swift */; };
 		168F07262B5A58B000ED24A3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07252B5A58B000ED24A3 /* SettingView.swift */; };
 		168F07282B5A681D00ED24A3 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F07272B5A681D00ED24A3 /* MailView.swift */; };
@@ -74,6 +76,8 @@
 		167E45BD2B5DEDEE00AC71DE /* ReportFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFormView.swift; sourceTree = "<group>"; };
 		167E45BF2B5E350500AC71DE /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		167E45C12B5E360300AC71DE /* ReportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVM.swift; sourceTree = "<group>"; };
+		167E45C32B60F9ED00AC71DE /* BlockUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserModel.swift; sourceTree = "<group>"; };
+		167E45C52B61063E00AC71DE /* BanPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanPopupView.swift; sourceTree = "<group>"; };
 		168F07222B512F2500ED24A3 /* AgreementPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPopupView.swift; sourceTree = "<group>"; };
 		168F07252B5A58B000ED24A3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		168F07272B5A681D00ED24A3 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				16A1CA582B216D150054BA39 /* CommonModifier.swift */,
 				168F07222B512F2500ED24A3 /* AgreementPopupView.swift */,
+				167E45C52B61063E00AC71DE /* BanPopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				1674C8D22B281CF300C53EE1 /* ButtonPressModel.swift */,
 				1674C8D62B28B64E00C53EE1 /* SharedModel.swift */,
 				167E45BF2B5E350500AC71DE /* ReportModel.swift */,
+				167E45C32B60F9ED00AC71DE /* BlockUserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 				1674C8D72B28B64E00C53EE1 /* SharedModel.swift in Sources */,
 				162FCEE72B31A0C0004A5B86 /* AdMobBannerView.swift in Sources */,
 				1674C8D52B28B34C00C53EE1 /* SharedVM.swift in Sources */,
+				167E45C62B61063E00AC71DE /* BanPopupView.swift in Sources */,
 				16A2CE872B1D929600917917 /* ParentView.swift in Sources */,
 				167E45C22B5E360300AC71DE /* ReportVM.swift in Sources */,
 				16A2CEA12B1EE33C00917917 /* BaseVM.swift in Sources */,
@@ -450,6 +457,7 @@
 				16E6B53D2B2D446A008A2A51 /* ResultPlanModel.swift in Sources */,
 				167E45C02B5E350500AC71DE /* ReportModel.swift in Sources */,
 				16A1CA5D2B2185AC0054BA39 /* ResponseVM.swift in Sources */,
+				167E45C42B60F9ED00AC71DE /* BlockUserModel.swift in Sources */,
 				161D78532B0DCF5300C17982 /* TravelPlannerApp.swift in Sources */,
 				16A2CEAA2B1EE7B700917917 /* TravelPlanModel.swift in Sources */,
 				16A1CA5F2B219A2F0054BA39 /* AppState.swift in Sources */,

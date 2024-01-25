@@ -17,6 +17,8 @@ struct CommonModifier: ViewModifier {
             content
                 .disabled(gvm.isDisEditable)
             
+   
+            
             //処理中の画像表示
             if gvm.isShowProgres {
                 ProgressView(Const.msg_loading)
@@ -31,6 +33,13 @@ struct CommonModifier: ViewModifier {
                 Color.gray.opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
                 AgreementPopupView(isPresent: $gvm.isShowTermOfService)
+            }
+            
+            //アカバンユーザかどうか
+            if gvm.isBlocked {
+                Color.gray.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                BanPopupView(isPresent: $gvm.isBlocked)
             }
                 
         }

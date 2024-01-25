@@ -89,9 +89,16 @@ class InputPlanVM: BaseVM {
     }
     
     // MARK: - GPTに送る前段処理
-    func createTravelPlan(txt:String){
+    func createTravelPlan(txt: String) {
+        // 文字列の長さが0の場合にエラー処理
+        guard !txt.isEmpty else {
+            // エラー処理
+            GlobalViewModel.shared.setAlertMessage(message: Const.msg_info_noinput)
+            return
+        }
+
         model.text = txt
-        //リクエスト送信
+        // リクエスト送信
         requestGpt()
     }
     

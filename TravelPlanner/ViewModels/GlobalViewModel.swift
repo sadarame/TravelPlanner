@@ -30,6 +30,9 @@ final class GlobalViewModel: ObservableObject {
     //利用規約表示
     @AppStorage("isShowTermOfService") var isShowTermOfService = true
     
+    //アカウントバンのユーザかどうか
+    @Published var isBlocked = false
+    
     //エラーメッセージ制御
     @Published var isShowingMessage: Bool = false
     @Published var userMessage: String = ""
@@ -50,8 +53,36 @@ final class GlobalViewModel: ObservableObject {
         fetchMstData()
         //マスタデータの取得
         fetchUserNotificationMessage()
+        //ブロック
+        isBlockedUser()
     }
     
+    func isBlockedUser() {
+        guard let userId = loadDocumentID() else {
+            // userIdがnilの場合の処理
+            return
+        }
+
+        // 指定したuseridのデータを取得
+        fetchDataFromFirestore(userId: userId) { result in
+            switch result {
+            case .success(let document):
+                // ドキュメントが取得できた場合の処理
+                let data = document.data()
+                print("Fetched data: \(data ?? [:])")
+                
+                self.isBlocked = true
+                
+                
+            case .failure(let error):
+                // エラーが発生した場合の処理
+                print("Error fetching data: \(error.localizedDescription)")
+            }
+        }
+        
+    }
+
+
     func fetchData<T: Decodable>(from collection: String, as type: T.Type, completion: @escaping ([T]) -> Void) {
         let db = Firestore.firestore()
         let collectionRef = db.collection(collection)
@@ -124,5 +155,45 @@ final class GlobalViewModel: ObservableObject {
     func setAdAlertMessage(){
         isShowAdReward = true
     }
+    
+    func fetchDataFromFirestore(userId: String, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let collection = db.collection("TB_BLOCK_USERS")
+
+        // 指定したuseridのデータを取得
+        let query = collection.whereField("userID", isEqualTo: userId)
+
+        query.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let documents = querySnapshot?.documents else {
+                // ドキュメントが存在しない場合の処理
+                let customError = NSError(domain: "FirestoreErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: "Document not found"])
+                completion(.failure(customError))
+                return
+            }
+
+            if documents.isEmpty {
+                // ドキュメントが見つからない場合の処理
+                let customError = NSError(domain: "FirestoreErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: "Document not found"])
+                completion(.failure(customError))
+                return
+            }
+
+            // ドキュメントが存在する場合、最初のドキュメントを返す
+            if let document = documents.first {
+                completion(.success(document))
+            } else {
+                // ドキュメントが存在しない場合の処理
+                let customError = NSError(domain: "FirestoreErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: "Document not found"])
+                completion(.failure(customError))
+            }
+        }
+    }
+    
+    
 }
 

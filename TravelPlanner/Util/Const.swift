@@ -41,6 +41,10 @@ struct Const {
     
     static let msg_placeholder_report  = String(localized:"通報内容を入力してください")
     
+    static let msg_info_noinput = String(localized:"旅行計画を入力してください。")
+    
+    static let msg_error_BAN = String(localized:"不適切な利用が確認されたため、本アプリは使用いただけません。")
+    
     
     //利用規約
     static let MSG_USER_AGREEMENT_TITLE = String(localized: "利用規約")
@@ -60,7 +64,7 @@ struct Const {
     static let label_fmt_2 = String(localized:"定型②")
     static let label_fmt_3 = String(localized:"定型③")
     static let label_fmt_4 = String(localized:"定型④")
-    static let label_block  = String(localized:"ユーザーブロック")
+    static let label_block  = String(localized:"投稿者非表示")
     static let label_report = String(localized:"通報")
     static let label_setting = String(localized:"設定")
     static let label_inquiry = String(localized:"問い合わせ")
