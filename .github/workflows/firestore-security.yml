@@ -1,0 +1,21 @@
+name: Firestore security verification
+on:
+  push:
+    branches: [security/emudhra-firestore-2026-11]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ios:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - run: pod update --repo-update
+      - run: xcodebuild -workspace TravelPlanner.xcworkspace -scheme TravelPlanner -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO build
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resolved-ios-dependencies
+          path: Podfile.lock
