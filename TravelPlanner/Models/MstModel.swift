@@ -8,7 +8,7 @@
 import Foundation
 
 import FirebaseFirestore
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct MstModel: Codable {
     var MaxLimit: Int = 0
