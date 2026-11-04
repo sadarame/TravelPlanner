@@ -1,8 +1,5 @@
 name: Firestore security verification
 on:
-  push:
-    branches: [security/emudhra-firestore-2026-11]
-  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
