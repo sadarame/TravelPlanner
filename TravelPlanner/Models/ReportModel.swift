@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct ReportModel: Codable, Identifiable {
     @DocumentID var id: String? // FirestoreのドキュメントID

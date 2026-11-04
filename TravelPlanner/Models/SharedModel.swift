@@ -8,7 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct SharedModel: Identifiable, Codable {
     @DocumentID var id: String?
